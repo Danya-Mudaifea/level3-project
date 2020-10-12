@@ -10,7 +10,7 @@
 ### Trello 
 
 
-![Alt text](relative/path/to/img.jpg?raw=true "Title")
+![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day1.png?raw=true "Title")
 
 ## Day 2:
 
@@ -19,4 +19,4 @@
 
 ### Trello 
 
-![Alt text](relative/path/to/img.jpg?raw=true "Title")
+![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day1.png?raw=true "Title")
