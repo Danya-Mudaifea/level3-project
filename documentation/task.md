@@ -23,7 +23,7 @@ Problems pushing an image. Solution : changing the order of deployment commands
 
 ### Trello 
 
-![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day1.png?raw=true "Title")
+![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day2.png?raw=true "Title")
 
 #### end of the day 
 
