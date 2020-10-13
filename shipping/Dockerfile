@@ -19,7 +19,7 @@ ARG BUILD_DATE
 ARG BUILD_VERSION
 ARG COMMIT
 
-LABEL org.label-schema.vendor="amerahsultan1" \
+LABEL org.label-schema.vendor="bryandollery" \
   org.label-schema.build-date="${BUILD_DATE}" \
   org.label-schema.version="${BUILD_VERSION}" \
   org.label-schema.name="Socks Shop: Shipping" \
