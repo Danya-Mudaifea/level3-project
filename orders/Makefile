@@ -3,3 +3,6 @@ build:
 
 run:
 	docker run -it --rm orders
+
+localtest:
+	docker run -it --rm -d -p 8029:80 orders
