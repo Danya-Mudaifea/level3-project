@@ -28,3 +28,21 @@ Problems pushing an image. Solution : changing the order of deployment commands
 #### end of the day 
 
 ![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day2.1.png?raw=true "Title")
+
+## Day 3:
+- Sucssfully tested front-end , orders , payment , shipping 
+
+### Issues
+- payment didn't work untill adding /main 
+- getting badgetay with edge-router
+- not working db in catalogue & orders 
+- lack of sleep
+
+### Trello 
+
+![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day3.png?raw=true "Title")
+
+#### end of the day 
+
+![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day3.1.png?raw=true "Title")
+
