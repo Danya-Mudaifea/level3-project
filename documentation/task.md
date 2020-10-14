@@ -47,6 +47,7 @@ Problems pushing an image. Solution : changing the order of deployment commands
 ![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day3.1.png?raw=true "Title")
 
 ## Day 4:
+-user worked with makefile ( dockerdev , dockertestdb ,dockerruntest ) locally
 
 
 ### Issues 
