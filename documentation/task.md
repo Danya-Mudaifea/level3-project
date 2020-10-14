@@ -46,3 +46,10 @@ Problems pushing an image. Solution : changing the order of deployment commands
 
 ![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day3.1.png?raw=true "Title")
 
+## Day 4:
+
+
+### Issues 
+-queue master didn't work until I changed jdk image, got queue-master-rabbitmq err
+-load test didn't work because it needed python 3.6 or higher and updating pip and change locustio to locust , got error : "
+TARGET_HOST is not set; use '-h hostname:port'"
