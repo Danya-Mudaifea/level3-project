@@ -8,7 +8,7 @@ spec:
     name: front-end
   params:
   - name: IMAGE
-    value: "Danya-Mudaifea/front-end"
+    value: "danya97/front-end"
   resources:
     inputs:
     - name: level3-project
