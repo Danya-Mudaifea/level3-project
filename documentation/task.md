@@ -57,7 +57,10 @@ TARGET_HOST is not set; use '-h hostname:port'"
 
 ## Day 5:
 - fixing yestarday error :D 
-- sucessfully pushing all images using tekton ( errors in catalogue , orders , q-master , shipping ) , will try to work on it tmw and add the trello screenshots :) , good night , or good morning ( 4:00 am )
+- sucessfully pushing images using tekton 
 
 
 ### Issues 
+- errors in catalogue , orders , q-master , shipping ) images, will try to work on it tmw and add the trello screenshots :) , good night , or good morning ( 4:00 am )
+
+
