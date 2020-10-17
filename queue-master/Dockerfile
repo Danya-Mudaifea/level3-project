@@ -5,7 +5,7 @@ WORKDIR /tmp
 copy src /tmp/src
 copy pom.xml /tmp/
 
-run --mount=type=cache,id=maven,target=/root/.m2,sharing=shared mvn clean package
+run mvn clean package
 
 FROM java:openjdk-8-alpine
 
@@ -32,3 +32,4 @@ RUN	chown -R ${SERVICE_USER}:${SERVICE_GROUP} ./queue-master.jar
 USER ${SERVICE_USER}
 
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/urandom","-jar","./queue-master.jar", "--port=80"]
+
