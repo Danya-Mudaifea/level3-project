@@ -1,15 +1,15 @@
 # syntax=docker/dockerfile:experimental
 FROM maven:3-jdk-11 as build
-WORKDIR /tmp
+WORKDIR /orders
 
-copy src /tmp/src
-copy pom.xml /tmp/
+copy . /orders
 
-run --mount=type=cache,id=maven,target=/root/.m2,sharing=shared mvn clean package
+
+run mvn clean package
 
 from adoptopenjdk/openjdk11:alpine
 
-COPY --from=build /tmp/target/orders.jar /orders.jar
+COPY --from=build /orders/target/orders.jar /orders.jar
 
 run chmod a+rx ./orders.jar
 
