@@ -22,8 +22,8 @@ LABEL org.label-schema.vendor="danya-mudaifea" \
   org.label-schema.version="${BUILD_VERSION}" \
   org.label-schema.name="Socks Shop: carts" \
   org.label-schema.description="REST API for carts service" \
-  org.label-schema.url="https://github.com/amerahsultan1/level3-project/carts" \ 
-  org.label-schema.vcs-url="github.com:amerahsultan1/level3-project/carts.git" \ 
+  org.label-schema.url="https://github.com/danya-mudaifea/level3-project/carts" \ 
+  org.label-schema.vcs-url="github.com:danya-mudaifea/level3-project/carts.git" \ 
   org.label-schema.vcs-ref="${COMMIT}" \
   org.label-schema.schema-version="1.0"
 
