@@ -28,3 +28,4 @@ LABEL org.label-schema.vendor="danya-mudaifea" \
   org.label-schema.schema-version="1.0"
 
 ENTRYPOINT ["/opt/java/openjdk/bin/java","-jar","./carts.jar", "--port=80"]
+
