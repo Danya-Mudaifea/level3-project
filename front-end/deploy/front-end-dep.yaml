@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: front-end
-        image: danya97/front-end
+        image: amerahsultan1/front-end
         resources:
           limits:
             cpu: 300m
