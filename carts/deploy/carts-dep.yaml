@@ -1,13 +1,4 @@
-apiVersion: a          requests:
-            cpu: 300m
-            memory: 500Mi
-        ports:
-        - containerPort: 80
-        securityContext:
-          runAsNonRoot: true
-          runAsUser: 10001
-          capabilities: 
-pps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: carts
@@ -18,7 +9,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: carts
+      name: carts
   template:
     metadata:
       labels:
