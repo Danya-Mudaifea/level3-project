@@ -1,0 +1,509 @@
+    1  2020-10-18 16:12:23 cd git/
+    2  2020-10-18 16:12:26 cd k8s-sandbox/
+    3  2020-10-18 16:12:28 make up
+    4  2020-10-18 16:16:23 make install-cicd 
+    5  2020-10-18 16:16:30 cd ..
+    6  2020-10-18 16:17:01 git clone https://github.com/Danya-Mudaifea/level3-project.git
+    7  2020-10-18 16:17:24 cd edge-router/
+    8  2020-10-18 16:17:32 make build -t edge-router .
+    9  2020-10-18 16:17:46 docker build -t edge-router .
+   10  2020-10-18 16:18:11 la
+   11  2020-10-18 16:18:24 docker network create sock-shop
+   12  2020-10-18 16:21:16 docker run --network sock-shop -d -p 80:80 -p 8080:8080--name edge-router edge-router
+   13  2020-10-18 16:21:26 docker run --network sock-shop -d -p 80:80 -p 8080:8080 --name edge-router edge-router
+   14  2020-10-18 16:21:29 docker ps
+   15  2020-10-18 16:21:42 docker run --network sock-shop -d -p 82:80 -p 8080:8080 --name edge-router edge-router
+   16  2020-10-18 16:21:49 docker run --network sock-shop -d -p 80:81 -p 8080:8080 --name edge-router edge-router
+   17  2020-10-18 16:21:59 docker ps
+   18  2020-10-18 16:22:05 docker ps -l
+   19  2020-10-18 16:22:19 docker rm -f 40bd8fda5dfb
+   20  2020-10-18 16:22:30 docker run --network sock-shop -d -p 81:80 -p 8080:8080 --name edge-router edge-router
+   21  2020-10-18 16:22:33 docker ps
+   22  2020-10-18 16:22:43 vim Dockerfile 
+   23  2020-10-18 16:22:56 docker rm -f 70bf0791df88 
+   24  2020-10-18 16:23:07 cd ..
+   25  2020-10-18 16:23:10 cd git/
+   26  2020-10-18 16:23:12 cd k8s-sandbox/
+   27  2020-10-18 16:23:14 make down
+   28  2020-10-18 16:24:25 docker ps
+   29  2020-10-18 16:24:30 cd ..
+   30  2020-10-18 16:24:38 cd edge-router/
+   31  2020-10-18 16:24:45 docker run --network sock-shop -d -p 80:80 -p 8080:8080 --name edge-router edge-router
+   32  2020-10-18 16:24:48 docker ps
+   33  2020-10-18 16:24:54 cd ..
+   34  2020-10-18 16:24:56 cd front-end/
+   35  2020-10-18 16:25:11 docker build -t front-end .
+   36  2020-10-18 16:26:16 docker run --network sock-shop -d --name front-end front-end
+   37  2020-10-18 16:27:24 cd ..
+   38  2020-10-18 16:28:23 docker run --network sock-shop -d --name rabbitmq rabbimq 
+   39  2020-10-18 16:28:42 docker run --network sock-shop -d --name rabbitmq rabbitmq 
+   40  2020-10-18 16:29:55 docker run --network sock-shop -d --name carts-db mongo:3.4
+   41  2020-10-18 16:30:27 docker run --network sock-shop -d --name orders-db mongo:3.4
+   42  2020-10-18 16:30:33 docker ps
+   43  2020-10-18 16:31:03 ll
+   44  2020-10-18 16:31:08 cd carts/
+   45  2020-10-18 16:31:23 docker build -t carts .
+   46  2020-10-18 16:35:39 cd docker/
+   47  2020-10-18 16:35:43 cd carts/
+   48  2020-10-18 16:35:52 docker build -t carts .
+   49  2020-10-18 16:36:05 cd ..
+   50  2020-10-18 16:36:11 docker build -t carts .
+   51  2020-10-18 16:39:44 vim Dockerfile 
+   52  2020-10-18 16:40:27 docker build -t carts .
+   53  2020-10-18 16:44:15 vim Dockerfile 
+   54  2020-10-18 16:45:35 docker build -t carts .
+   55  2020-10-18 16:48:44 vim Dockerfile 
+   56  2020-10-18 16:48:59 docker build -t carts .
+   57  2020-10-18 16:50:58 vim Makefile 
+   58  2020-10-18 16:51:01 make build 
+   59  2020-10-18 16:54:19 s-1.4.4.RELEASE.pom (6.6 kB at 16 kB/s)
+   60  2020-10-18 17:01:17 docker pull weaveworksdemos/carts
+   61  2020-10-18 17:02:12 docker run --network sock-shop -d --name carts weaveworksdemos/carts
+   62  2020-10-18 17:02:16 docker ps
+   63  2020-10-18 17:02:48 ll
+   64  2020-10-18 17:02:53 cd catalogue/
+   65  2020-10-18 17:03:12 docker build -t catalogue .
+   66  2020-10-18 17:06:43 docker run --network sock-shop -d --name catalogue catalogue
+   67  2020-10-18 17:06:45 docker ps
+   68  2020-10-18 17:07:51 cd ..
+   69  2020-10-18 17:07:59 cd orders/
+   70  2020-10-18 17:08:10 docker build -t orders .
+   71  2020-10-18 17:12:39 vim Dockerfile 
+   72  2020-10-18 17:13:34 docker run --network sock-shop -d --name orders orders 
+   73  2020-10-18 17:13:39 docker ps
+   74  2020-10-18 17:14:09 cd ..
+   75  2020-10-18 17:14:25 docker rm -f fd03ad64cb98
+   76  2020-10-18 17:14:29 cd carts/
+   77  2020-10-18 17:14:32 vim docker
+   78  2020-10-18 17:14:36 vim Dockerfile 
+   79  2020-10-18 17:15:14 docker build -t carts .
+   80  2020-10-18 17:18:41 ld
+   81  2020-10-18 17:18:45 cd scripts/
+   82  2020-10-18 17:18:48 vim build.sh 
+   83  2020-10-18 17:18:59 cd ..
+   84  2020-10-18 17:19:04 vim Dockerfile 
+   85  2020-10-18 17:21:38 docker ps
+   86  2020-10-18 17:21:43 cd ..
+   87  2020-10-18 17:22:24 cd catalogue/
+   88  2020-10-18 17:22:27 cd docker/
+   89  2020-10-18 17:22:32 cd catalogue-db/
+   90  2020-10-18 17:22:52 docker build -t catalogue-db .
+   91  2020-10-18 17:23:17 docker ps
+   92  2020-10-18 17:23:38 docker rm -f 021e20df6649
+   93  2020-10-18 17:24:05 docker run --network sock-shop -d --name catalogue-db catalogue-db 
+   94  2020-10-18 17:24:12 docker run --network sock-shop -d --name catalogue catalogue
+   95  2020-10-18 17:24:15 docker ps
+   96  2020-10-18 17:25:52 docker images
+   97  2020-10-18 17:26:21 docker run --network sock-shop -d --name carts weaveworksdemos/carts
+   98  2020-10-18 17:26:58 cd ..
+   99  2020-10-18 17:26:58 ll
+  100  2020-10-18 17:27:00 cd ..
+  101  2020-10-18 17:27:01 ll
+  102  2020-10-18 17:27:02 cd ..
+  103  2020-10-18 17:27:02 ll
+  104  2020-10-18 19:18:00 git pull
+  105  2020-10-18 19:18:06 cd carts/
+  106  2020-10-18 19:18:09 docker ps
+  107  2020-10-18 19:18:16 docker rm -f 7d6db037c72d
+  108  2020-10-18 19:18:32 docker build -t carts .
+  109  2020-10-18 19:33:47 git pull
+  110  2020-10-18 19:33:52 cd carts/
+  111  2020-10-18 19:33:58 docker ps
+  112  2020-10-18 19:34:07 docker build -t carts .
+  113  2020-10-18 19:37:25 cd ..
+  114  2020-10-18 19:37:32 rm -rf level3-project/
+  115  2020-10-18 19:37:36 git clone https://github.com/Danya-Mudaifea/level3-project.git
+  116  2020-10-18 19:38:03 cd ca
+  117  2020-10-18 19:38:06 cd carts/
+  118  2020-10-18 19:38:10 docker build -t carts .
+  119  2020-10-18 19:43:45 cd ,,
+  120  2020-10-18 19:43:47 cd ..
+  121  2020-10-18 19:44:01 docker run --network sock-shop -d --name carts carts
+  122  2020-10-18 19:44:46 docker ps
+  123  2020-10-18 19:44:50 docker run --network sock-shop -d --name carts carts
+  124  2020-10-18 19:45:09 docker rm -f 01ae4f7338c12a707
+  125  2020-10-18 19:45:11 docker run --network sock-shop -d --name carts carts
+  126  2020-10-18 19:45:13 docker ps
+  127  2020-10-18 19:45:30 docker rm -f f719aec2318d
+  128  2020-10-18 19:45:40 docker run --network sock-shop --name carts carts
+  129  2020-10-18 19:46:17 cd carts/
+  130  2020-10-18 19:46:21 vim Dockerfile 
+  131  2020-10-18 19:46:54 docker build -t carts .
+  132  2020-10-18 19:51:39 docker ps 
+  133  2020-10-18 19:51:42 docker ps l
+  134  2020-10-18 19:51:45 docker ps -l
+  135  2020-10-18 19:51:51 docker rm -f a04a7a687109
+  136  2020-10-18 19:51:56 docker run --network sock-shop --name carts carts
+  137  2020-10-18 19:54:05 docker ps -l
+  138  2020-10-18 19:54:16 docker rm -f ee7ac471f026
+  139  2020-10-18 19:54:23 cd docker/
+  140  2020-10-18 19:54:28 cd carts/
+  141  2020-10-18 19:54:38 docker build -t carts-db .
+  142  2020-10-18 19:54:41 cd ..
+  143  2020-10-18 19:54:57 ll
+  144  2020-10-18 19:55:25 docker build -t cartsd .
+  145  2020-10-18 19:55:39 docker run --network sock-shop --name carts cartsd
+  146  2020-10-18 19:57:07 vim pom.xml 
+  147  2020-10-18 20:00:49 docker build -t cartsd .
+  148  2020-10-18 20:04:56 docker run --network sock-shop --name carts cartsd
+  149  2020-10-18 20:05:01 docker run --network sock-shop --name cartsd cartsd
+  150  2020-10-18 20:08:01 docker run --network sock-shop --name -d cartsd cartsd
+  151  2020-10-18 20:08:09 docker run --network sock-shop -d --name cartsd cartsd
+  152  2020-10-18 20:08:15 docker ps
+  153  2020-10-18 20:08:18 docker ps ;
+  154  2020-10-18 20:08:20 docker ps l
+  155  2020-10-18 20:08:25 docker ps -l
+  156  2020-10-18 20:08:34 docker rm -f  44c28aa34ea0
+  157  2020-10-18 20:08:37 docker run --network sock-shop -d --name cartsd cartsd
+  158  2020-10-18 20:08:44 docker ps
+  159  2020-10-18 20:09:49 git pull
+  160  2020-10-18 20:10:05 vim Makefile 
+  161  2020-10-18 20:10:15 make build 
+  162  2020-10-18 20:14:20 make run 
+  163  2020-10-18 20:15:05 docker run --network sock-shop -d --name carts carts
+  164  2020-10-18 20:15:08 docker ps
+  165  2020-10-18 20:15:20 docker rm -f 6cfadf551fd4
+  166  2020-10-18 20:15:59 docker run --network sock-shop -d --name carts carts
+  167  2020-10-18 20:16:05 docker ps -l
+  168  2020-10-18 20:16:13 docker rm -f c4bdc274e84b
+  169  2020-10-18 20:16:16 docker run --network sock-shop -d --name carts carts
+  170  2020-10-18 20:16:19 docker ps
+  171  2020-10-18 20:16:36 ll
+  172  2020-10-18 20:16:38 cd ..
+  173  2020-10-18 20:17:25 docker ps
+  174  2020-10-18 20:18:56 docker ps -a
+  175  2020-10-18 20:19:11 docker ps -;
+  176  2020-10-18 20:19:13 docker ps -l
+  177  2020-10-18 20:19:17 docker ps 
+  178  2020-10-18 20:19:22 docker ps
+  179  2020-10-18 20:19:25 docker ps -l
+  180  2020-10-18 20:19:48 docker ps ll
+  181  2020-10-18 20:19:53 docker ps --help
+  182  2020-10-18 20:20:14 docker ps --all
+  183  2020-10-18 20:20:58 cd ..
+  184  2020-10-18 20:21:49 cd level3-project/queue-master/
+  185  2020-10-18 20:23:22 docker build -t queue-master .
+  186  2020-10-18 20:30:49 docker run --network sock-shop -d --name queue-master queue-master
+  187  2020-10-18 20:30:53 docker ps
+  188  2020-10-18 20:30:58 cd ..
+  189  2020-10-18 20:31:00 cd shipping/
+  190  2020-10-18 20:31:07 docker build -t shipping .
+  191  2020-10-18 20:36:05 docker run --network sock-shop -d --name shipping shipping
+  192  2020-10-18 20:38:13 cd ..
+  193  2020-10-18 20:38:18 l
+  194  2020-10-18 20:38:25 cd user/
+  195  2020-10-18 20:38:31 docker build -t user .
+  196  2020-10-18 20:40:39 docker run --network sock-shop -d --name user user
+  197  2020-10-18 20:41:12 docker ps
+  198  2020-10-18 20:42:04 cd docker/
+  199  2020-10-18 20:42:08 cd user-db/
+  200  2020-10-18 20:42:13 cat Dockerfile 
+  201  2020-10-18 20:42:14 cd ..
+  202  2020-10-18 20:42:21 cat Dockerfile
+  203  2020-10-18 20:42:29 docker ps
+  204  2020-10-18 20:43:19 docker rm -f bcf2d8bd3a8c
+  205  2020-10-18 20:43:23 pwd
+  206  2020-10-18 20:43:28 cd docker/
+  207  2020-10-18 20:43:44 cd user-db/
+  208  2020-10-18 20:43:47 vim Dockerfile 
+  209  2020-10-18 20:44:02 docker build -t user-db .
+  210  2020-10-18 20:44:42 docker run --network sock-shop -d --name user-db user-db
+  211  2020-10-18 20:44:52 docker run --network sock-shop -d --name user user
+  212  2020-10-18 20:44:54 docker ps
+  213  2020-10-18 20:48:37 cd ..
+  214  2020-10-18 20:48:39 cd e..
+  215  2020-10-18 20:48:45 vim Dockerfile
+  216  2020-10-18 20:49:12 docker rm -f 71a0ccd033f6
+  217  2020-10-18 20:49:16 docker run --network sock-shop -d --name user user
+  218  2020-10-18 20:49:19 docker ps
+  219  2020-10-18 20:49:43 docker rm -f 0a3ae20b2e6b
+  220  2020-10-18 20:49:48 docker build -t user .
+  221  2020-10-18 20:50:36 docker run --network sock-shop -d --name user user
+  222  2020-10-18 20:50:47 docker ps
+  223  2020-10-18 20:51:27 vim Dockerfile
+  224  2020-10-18 20:51:36 ll
+  225  2020-10-18 20:51:42 cd db/
+  226  2020-10-18 20:51:45 cd ..
+  227  2020-10-18 20:51:46 ll
+  228  2020-10-18 20:51:53 cd users/
+  229  2020-10-18 20:52:10 vim cards.go 
+  230  2020-10-18 20:52:14 cd ..
+  231  2020-10-18 20:52:18 dc docker
+  232  2020-10-18 20:52:21 cd docker/
+  233  2020-10-18 20:52:24 cd user
+  234  2020-10-18 20:52:27 cd ..
+  235  2020-10-18 20:52:34 cd user-db/
+  236  2020-10-18 20:52:45 vim Dockerfile 
+  237  2020-10-18 20:54:35 docker ps
+  238  2020-10-18 20:55:07 cd ..
+  239  2020-10-18 20:55:39 cd payment/
+  240  2020-10-18 20:55:47 docker build -t payment .
+  241  2020-10-18 20:59:02 docker run --network sock-shop -d --name payment payment
+  242  2020-10-18 21:05:04 cat history >history.txt
+  243* 2020-10-18 21:05:26 
+  244  2020-10-18 21:05:36 rm history.txt 
+  245  2020-10-18 21:05:49 vim history.txt 
+  246  2020-10-18 21:06:11 cd level3-project/
+  247  2020-10-18 21:06:19 history >history.txt
+    1  2020-10-18 16:12:23 cd git/
+    2  2020-10-18 16:12:26 cd k8s-sandbox/
+    3  2020-10-18 16:12:28 make up
+    4  2020-10-18 16:16:23 make install-cicd 
+    5  2020-10-18 16:16:30 cd ..
+    6  2020-10-18 16:17:01 git clone https://github.com/Danya-Mudaifea/level3-project.git
+    7  2020-10-18 16:17:24 cd edge-router/
+    8  2020-10-18 16:17:32 make build -t edge-router .
+    9  2020-10-18 16:17:46 docker build -t edge-router .
+   10  2020-10-18 16:18:11 la
+   11  2020-10-18 16:18:24 docker network create sock-shop
+   12  2020-10-18 16:21:16 docker run --network sock-shop -d -p 80:80 -p 8080:8080--name edge-router edge-router
+   13  2020-10-18 16:21:26 docker run --network sock-shop -d -p 80:80 -p 8080:8080 --name edge-router edge-router
+   14  2020-10-18 16:21:29 docker ps
+   15  2020-10-18 16:21:42 docker run --network sock-shop -d -p 82:80 -p 8080:8080 --name edge-router edge-router
+   16  2020-10-18 16:21:49 docker run --network sock-shop -d -p 80:81 -p 8080:8080 --name edge-router edge-router
+   17  2020-10-18 16:21:59 docker ps
+   18  2020-10-18 16:22:05 docker ps -l
+   19  2020-10-18 16:22:19 docker rm -f 40bd8fda5dfb
+   20  2020-10-18 16:22:30 docker run --network sock-shop -d -p 81:80 -p 8080:8080 --name edge-router edge-router
+   21  2020-10-18 16:22:33 docker ps
+   22  2020-10-18 16:22:43 vim Dockerfile 
+   23  2020-10-18 16:22:56 docker rm -f 70bf0791df88 
+   24  2020-10-18 16:23:07 cd ..
+   25  2020-10-18 16:23:10 cd git/
+   26  2020-10-18 16:23:12 cd k8s-sandbox/
+   27  2020-10-18 16:23:14 make down
+   28  2020-10-18 16:24:25 docker ps
+   29  2020-10-18 16:24:30 cd ..
+   30  2020-10-18 16:24:38 cd edge-router/
+   31  2020-10-18 16:24:45 docker run --network sock-shop -d -p 80:80 -p 8080:8080 --name edge-router edge-router
+   32  2020-10-18 16:24:48 docker ps
+   33  2020-10-18 16:24:54 cd ..
+   34  2020-10-18 16:24:56 cd front-end/
+   35  2020-10-18 16:25:11 docker build -t front-end .
+   36  2020-10-18 16:26:16 docker run --network sock-shop -d --name front-end front-end
+   37  2020-10-18 16:27:24 cd ..
+   38  2020-10-18 16:28:23 docker run --network sock-shop -d --name rabbitmq rabbimq 
+   39  2020-10-18 16:28:42 docker run --network sock-shop -d --name rabbitmq rabbitmq 
+   40  2020-10-18 16:29:55 docker run --network sock-shop -d --name carts-db mongo:3.4
+   41  2020-10-18 16:30:27 docker run --network sock-shop -d --name orders-db mongo:3.4
+   42  2020-10-18 16:30:33 docker ps
+   43  2020-10-18 16:31:03 ll
+   44  2020-10-18 16:31:08 cd carts/
+   45  2020-10-18 16:31:23 docker build -t carts .
+   46  2020-10-18 16:35:39 cd docker/
+   47  2020-10-18 16:35:43 cd carts/
+   48  2020-10-18 16:35:52 docker build -t carts .
+   49  2020-10-18 16:36:05 cd ..
+   50  2020-10-18 16:36:11 docker build -t carts .
+   51  2020-10-18 16:39:44 vim Dockerfile 
+   52  2020-10-18 16:40:27 docker build -t carts .
+   53  2020-10-18 16:44:15 vim Dockerfile 
+   54  2020-10-18 16:45:35 docker build -t carts .
+   55  2020-10-18 16:48:44 vim Dockerfile 
+   56  2020-10-18 16:48:59 docker build -t carts .
+   57  2020-10-18 16:50:58 vim Makefile 
+   58  2020-10-18 16:51:01 make build 
+   59  2020-10-18 16:54:19 s-1.4.4.RELEASE.pom (6.6 kB at 16 kB/s)
+   60  2020-10-18 17:01:17 docker pull weaveworksdemos/carts
+   61  2020-10-18 17:02:12 docker run --network sock-shop -d --name carts weaveworksdemos/carts
+   62  2020-10-18 17:02:16 docker ps
+   63  2020-10-18 17:02:48 ll
+   64  2020-10-18 17:02:53 cd catalogue/
+   65  2020-10-18 17:03:12 docker build -t catalogue .
+   66  2020-10-18 17:06:43 docker run --network sock-shop -d --name catalogue catalogue
+   67  2020-10-18 17:06:45 docker ps
+   68  2020-10-18 17:07:51 cd ..
+   69  2020-10-18 17:07:59 cd orders/
+   70  2020-10-18 17:08:10 docker build -t orders .
+   71  2020-10-18 17:12:39 vim Dockerfile 
+   72  2020-10-18 17:13:34 docker run --network sock-shop -d --name orders orders 
+   73  2020-10-18 17:13:39 docker ps
+   74  2020-10-18 17:14:09 cd ..
+   75  2020-10-18 17:14:25 docker rm -f fd03ad64cb98
+   76  2020-10-18 17:14:29 cd carts/
+   77  2020-10-18 17:14:32 vim docker
+   78  2020-10-18 17:14:36 vim Dockerfile 
+   79  2020-10-18 17:15:14 docker build -t carts .
+   80  2020-10-18 17:18:41 ld
+   81  2020-10-18 17:18:45 cd scripts/
+   82  2020-10-18 17:18:48 vim build.sh 
+   83  2020-10-18 17:18:59 cd ..
+   84  2020-10-18 17:19:04 vim Dockerfile 
+   85  2020-10-18 17:21:38 docker ps
+   86  2020-10-18 17:21:43 cd ..
+   87  2020-10-18 17:22:24 cd catalogue/
+   88  2020-10-18 17:22:27 cd docker/
+   89  2020-10-18 17:22:32 cd catalogue-db/
+   90  2020-10-18 17:22:52 docker build -t catalogue-db .
+   91  2020-10-18 17:23:17 docker ps
+   92  2020-10-18 17:23:38 docker rm -f 021e20df6649
+   93  2020-10-18 17:24:05 docker run --network sock-shop -d --name catalogue-db catalogue-db 
+   94  2020-10-18 17:24:12 docker run --network sock-shop -d --name catalogue catalogue
+   95  2020-10-18 17:24:15 docker ps
+   96  2020-10-18 17:25:52 docker images
+   97  2020-10-18 17:26:21 docker run --network sock-shop -d --name carts weaveworksdemos/carts
+   98  2020-10-18 17:26:58 cd ..
+   99  2020-10-18 17:26:58 ll
+  100  2020-10-18 17:27:00 cd ..
+  101  2020-10-18 17:27:01 ll
+  102  2020-10-18 17:27:02 cd ..
+  103  2020-10-18 17:27:02 ll
+  104  2020-10-18 19:18:00 git pull
+  105  2020-10-18 19:18:06 cd carts/
+  106  2020-10-18 19:18:09 docker ps
+  107  2020-10-18 19:18:16 docker rm -f 7d6db037c72d
+  108  2020-10-18 19:18:32 docker build -t carts .
+  109  2020-10-18 19:33:47 git pull
+  110  2020-10-18 19:33:52 cd carts/
+  111  2020-10-18 19:33:58 docker ps
+  112  2020-10-18 19:34:07 docker build -t carts .
+  113  2020-10-18 19:37:25 cd ..
+  114  2020-10-18 19:37:32 rm -rf level3-project/
+  115  2020-10-18 19:37:36 git clone https://github.com/Danya-Mudaifea/level3-project.git
+  116  2020-10-18 19:38:03 cd ca
+  117  2020-10-18 19:38:06 cd carts/
+  118  2020-10-18 19:38:10 docker build -t carts .
+  119  2020-10-18 19:43:45 cd ,,
+  120  2020-10-18 19:43:47 cd ..
+  121  2020-10-18 19:44:01 docker run --network sock-shop -d --name carts carts
+  122  2020-10-18 19:44:46 docker ps
+  123  2020-10-18 19:44:50 docker run --network sock-shop -d --name carts carts
+  124  2020-10-18 19:45:09 docker rm -f 01ae4f7338c12a707
+  125  2020-10-18 19:45:11 docker run --network sock-shop -d --name carts carts
+  126  2020-10-18 19:45:13 docker ps
+  127  2020-10-18 19:45:30 docker rm -f f719aec2318d
+  128  2020-10-18 19:45:40 docker run --network sock-shop --name carts carts
+  129  2020-10-18 19:46:17 cd carts/
+  130  2020-10-18 19:46:21 vim Dockerfile 
+  131  2020-10-18 19:46:54 docker build -t carts .
+  132  2020-10-18 19:51:39 docker ps 
+  133  2020-10-18 19:51:42 docker ps l
+  134  2020-10-18 19:51:45 docker ps -l
+  135  2020-10-18 19:51:51 docker rm -f a04a7a687109
+  136  2020-10-18 19:51:56 docker run --network sock-shop --name carts carts
+  137  2020-10-18 19:54:05 docker ps -l
+  138  2020-10-18 19:54:16 docker rm -f ee7ac471f026
+  139  2020-10-18 19:54:23 cd docker/
+  140  2020-10-18 19:54:28 cd carts/
+  141  2020-10-18 19:54:38 docker build -t carts-db .
+  142  2020-10-18 19:54:41 cd ..
+  143  2020-10-18 19:54:57 ll
+  144  2020-10-18 19:55:25 docker build -t cartsd .
+  145  2020-10-18 19:55:39 docker run --network sock-shop --name carts cartsd
+  146  2020-10-18 19:57:07 vim pom.xml 
+  147  2020-10-18 20:00:49 docker build -t cartsd .
+  148  2020-10-18 20:04:56 docker run --network sock-shop --name carts cartsd
+  149  2020-10-18 20:05:01 docker run --network sock-shop --name cartsd cartsd
+  150  2020-10-18 20:08:01 docker run --network sock-shop --name -d cartsd cartsd
+  151  2020-10-18 20:08:09 docker run --network sock-shop -d --name cartsd cartsd
+  152  2020-10-18 20:08:15 docker ps
+  153  2020-10-18 20:08:18 docker ps ;
+  154  2020-10-18 20:08:20 docker ps l
+  155  2020-10-18 20:08:25 docker ps -l
+  156  2020-10-18 20:08:34 docker rm -f  44c28aa34ea0
+  157  2020-10-18 20:08:37 docker run --network sock-shop -d --name cartsd cartsd
+  158  2020-10-18 20:08:44 docker ps
+  159  2020-10-18 20:09:49 git pull
+  160  2020-10-18 20:10:05 vim Makefile 
+  161  2020-10-18 20:10:15 make build 
+  162  2020-10-18 20:14:20 make run 
+  163  2020-10-18 20:15:05 docker run --network sock-shop -d --name carts carts
+  164  2020-10-18 20:15:08 docker ps
+  165  2020-10-18 20:15:20 docker rm -f 6cfadf551fd4
+  166  2020-10-18 20:15:59 docker run --network sock-shop -d --name carts carts
+  167  2020-10-18 20:16:05 docker ps -l
+  168  2020-10-18 20:16:13 docker rm -f c4bdc274e84b
+  169  2020-10-18 20:16:16 docker run --network sock-shop -d --name carts carts
+  170  2020-10-18 20:16:19 docker ps
+  171  2020-10-18 20:16:36 ll
+  172  2020-10-18 20:16:38 cd ..
+  173  2020-10-18 20:17:25 docker ps
+  174  2020-10-18 20:18:56 docker ps -a
+  175  2020-10-18 20:19:11 docker ps -;
+  176  2020-10-18 20:19:13 docker ps -l
+  177  2020-10-18 20:19:17 docker ps 
+  178  2020-10-18 20:19:22 docker ps
+  179  2020-10-18 20:19:25 docker ps -l
+  180  2020-10-18 20:19:48 docker ps ll
+  181  2020-10-18 20:19:53 docker ps --help
+  182  2020-10-18 20:20:14 docker ps --all
+  183  2020-10-18 20:20:58 cd ..
+  184  2020-10-18 20:21:49 cd level3-project/queue-master/
+  185  2020-10-18 20:23:22 docker build -t queue-master .
+  186  2020-10-18 20:30:49 docker run --network sock-shop -d --name queue-master queue-master
+  187  2020-10-18 20:30:53 docker ps
+  188  2020-10-18 20:30:58 cd ..
+  189  2020-10-18 20:31:00 cd shipping/
+  190  2020-10-18 20:31:07 docker build -t shipping .
+  191  2020-10-18 20:36:05 docker run --network sock-shop -d --name shipping shipping
+  192  2020-10-18 20:38:13 cd ..
+  193  2020-10-18 20:38:18 l
+  194  2020-10-18 20:38:25 cd user/
+  195  2020-10-18 20:38:31 docker build -t user .
+  196  2020-10-18 20:40:39 docker run --network sock-shop -d --name user user
+  197  2020-10-18 20:41:12 docker ps
+  198  2020-10-18 20:42:04 cd docker/
+  199  2020-10-18 20:42:08 cd user-db/
+  200  2020-10-18 20:42:13 cat Dockerfile 
+  201  2020-10-18 20:42:14 cd ..
+  202  2020-10-18 20:42:21 cat Dockerfile
+  203  2020-10-18 20:42:29 docker ps
+  204  2020-10-18 20:43:19 docker rm -f bcf2d8bd3a8c
+  205  2020-10-18 20:43:23 pwd
+  206  2020-10-18 20:43:28 cd docker/
+  207  2020-10-18 20:43:44 cd user-db/
+  208  2020-10-18 20:43:47 vim Dockerfile 
+  209  2020-10-18 20:44:02 docker build -t user-db .
+  210  2020-10-18 20:44:42 docker run --network sock-shop -d --name user-db user-db
+  211  2020-10-18 20:44:52 docker run --network sock-shop -d --name user user
+  212  2020-10-18 20:44:54 docker ps
+  213  2020-10-18 20:48:37 cd ..
+  214  2020-10-18 20:48:39 cd e..
+  215  2020-10-18 20:48:45 vim Dockerfile
+  216  2020-10-18 20:49:12 docker rm -f 71a0ccd033f6
+  217  2020-10-18 20:49:16 docker run --network sock-shop -d --name user user
+  218  2020-10-18 20:49:19 docker ps
+  219  2020-10-18 20:49:43 docker rm -f 0a3ae20b2e6b
+  220  2020-10-18 20:49:48 docker build -t user .
+  221  2020-10-18 20:50:36 docker run --network sock-shop -d --name user user
+  222  2020-10-18 20:50:47 docker ps
+  223  2020-10-18 20:51:27 vim Dockerfile
+  224  2020-10-18 20:51:36 ll
+  225  2020-10-18 20:51:42 cd db/
+  226  2020-10-18 20:51:45 cd ..
+  227  2020-10-18 20:51:46 ll
+  228  2020-10-18 20:51:53 cd users/
+  229  2020-10-18 20:52:10 vim cards.go 
+  230  2020-10-18 20:52:14 cd ..
+  231  2020-10-18 20:52:18 dc docker
+  232  2020-10-18 20:52:21 cd docker/
+  233  2020-10-18 20:52:24 cd user
+  234  2020-10-18 20:52:27 cd ..
+  235  2020-10-18 20:52:34 cd user-db/
+  236  2020-10-18 20:52:45 vim Dockerfile 
+  237  2020-10-18 20:54:35 docker ps
+  238  2020-10-18 20:55:07 cd ..
+  239  2020-10-18 20:55:39 cd payment/
+  240  2020-10-18 20:55:47 docker build -t payment .
+  241  2020-10-18 20:59:02 docker run --network sock-shop -d --name payment payment
+  242  2020-10-18 21:05:04 cat history >history.txt
+  243  2020-10-18 21:05:08 cat history > history.txt
+  244  2020-10-18 21:05:16 vim history.txt 
+  245  2020-10-18 21:05:24 rm history.txt 
+  246  2020-10-18 21:05:26 cat history > history.txt
+  247  2020-10-18 21:05:36 rm history.txt 
+  248  2020-10-18 21:05:49 vim history.txt 
+  249  2020-10-18 21:06:39 git commit -m "finally front-end works"
+  250  2020-10-18 21:06:44 git push
+  251  2020-10-18 21:43:34 docker ps
+  252  2020-10-18 21:44:24 cd level3-project/user/docker/user-db/scripts/
+  253  2020-10-18 21:44:28 vim mongo_create_insert.sh 
+  254  2020-10-18 21:44:58 cd ..
+  255  2020-10-18 21:45:02 cd .
+  256  2020-10-18 21:45:03 cd ..
+  257  2020-10-18 21:45:10 cd scripts/
+  258  2020-10-18 22:19:17 historu
+  259  2020-10-18 22:19:37 history >history.txt
+  260  2020-10-18 22:19:50 git add .
+  261  2020-10-18 22:19:55 cd level3-project/
+  262  2020-10-18 22:19:59 history >> history.txt
