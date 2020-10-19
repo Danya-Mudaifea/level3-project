@@ -1,0 +1,16 @@
+apiVersion: tekton.dev/v1beta1
+kind: TaskRun
+metadata:
+  name: catalogue-db-runner
+spec:
+  serviceAccountName: catalogue-docker-hub
+  taskRef:
+    name: catalogue-db
+  params:
+  - name: IMAGE
+    value: "danya97/catalogue-db"
+  resources:
+    inputs:
+    - name: level3-project
+      resourceRef:
+        name: catalogue-resource
