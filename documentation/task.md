@@ -55,6 +55,10 @@ Problems pushing an image. Solution : changing the order of deployment commands
 -load test didn't work because it needed python 3.6 or higher and updating pip and change locustio to locust , got error : "
 TARGET_HOST is not set; use '-h hostname:port'"
 
+### Trello 
+
+![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day4.png?raw=true "Title")
+
 ## Day 5:
 - fixing yestarday error :D 
 - sucessfully pushing images using tekton 
@@ -63,4 +67,34 @@ TARGET_HOST is not set; use '-h hostname:port'"
 ### Issues 
 - errors in catalogue , orders , q-master , shipping ) images, will try to work on it tmw and add the trello screenshots :) , good night , or good morning ( 4:00 am )
 
+### Trello 
 
+![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day5.png?raw=true "Title")
+
+## Day 6:
+-pushed all images by fixing the errors
+
+### Issues 
+- The weekend is a weekend
+### Trello 
+
+![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day6.png?raw=true "Title")
+
+## Day 7:
+- Run a sandbox
+- Done with tekton 
+
+### Trello 
+
+![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day7.png?raw=true "Title")
+
+## Day 8:
+To do: 
+- Deploying the services 
+
+Done:
+Front-end 
+
+### Trello 
+
+![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day8.png?raw=true "Title")
