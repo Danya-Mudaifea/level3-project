@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: catalogue
-        image: danya97/catalogue
+        image: weaveworksdemos/catalogue:0.3.5
         command: ["/app"]
         args:
         - -port=80
@@ -49,3 +49,7 @@ spec:
           httpGet:
             path: /health
             port: 80
+          initialDelaySeconds: 180
+          periodSeconds: 3
+      nodeSelector:
+        beta.kubernetes.io/os: linux
