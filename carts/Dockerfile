@@ -11,7 +11,7 @@ COPY --from=build /carts/target/carts.jar /carts.jar
 
 RUN chmod a+rx ./carts.jar
 
-USER ${SERVICE_USER}
+# USER ${SERVICE_USER}
 
 ARG BUILD_DATE
 ARG BUILD_VERSION
