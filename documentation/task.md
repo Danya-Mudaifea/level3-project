@@ -88,12 +88,18 @@ TARGET_HOST is not set; use '-h hostname:port'"
 
 ![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day7.png?raw=true "Title")
 
-## Day 8:
-To do: 
-- Deploying the services 
+## Day 8 & 9 (who's counting anyway):
 
-Done:
-Front-end 
+- Pushed user-db & catalouge-db images 
+- Deployed all the services 
+
+### Issues
+- Forgot to install ingress
+- Front-end security needed to be deleted
+- Catalouge wasn't working because of ingress
+- User didn't work without cluser but worked in it ( porting issue I belive)
+- Some services is hard to know if they are working such as queue master 
+- There was so many errors more than I can remember :D 
 
 ### Trello 
 
