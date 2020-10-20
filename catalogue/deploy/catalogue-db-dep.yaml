@@ -1,26 +1,25 @@
-apiVersion: apps/v1 
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: catalogue-db
   labels:
-    app: catalogue-db
-  namespace: test
+    name: catalogue-db
 spec:
-  replicas: 1
   selector:
     matchLabels:
-      app: catalogue-db
+      name: catalogue-db
+  replicas: 1
   template:
     metadata:
       labels:
-        app: catalogue-db
+        name: catalogue-db
     spec:
       containers:
       - name: catalogue-db
-        image: weaveworksdemos/catalogue-db:0.3.0
+        image: danya97/catalogue-db
         env:
           - name: MYSQL_ROOT_PASSWORD
-            value: fake_password 
+            value: fake_password
           - name: MYSQL_DATABASE
             value: socksdb
         ports:

@@ -4,9 +4,10 @@ metadata:
   name: catalogue
   labels:
     name: catalogue
-  namespace: test
 spec:
+  type: NodePort
   ports:
+    # the port that this service should serve on
   - port: 80
     targetPort: 80
   selector:
