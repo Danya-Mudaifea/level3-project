@@ -3,17 +3,16 @@ kind: Deployment
 metadata:
   name: carts-db
   labels:
-    app: carts-db
-  namespace: test
+    name: carts-db
 spec:
-  replicas: 1
   selector:
     matchLabels:
-      app: carts-db
+      name: carts-db
+  replicas: 1
   template:
     metadata:
       labels:
-        app: carts-db
+        name: carts-db
     spec:
       containers:
       - name: carts-db
@@ -21,15 +20,6 @@ spec:
         ports:
         - name: mongo
           containerPort: 27017
-        securityContext:
-          capabilities:
-            drop:
-              - all
-            add:
-              - CHOWN
-              - SETGID
-              - SETUID
-          readOnlyRootFilesystem: true
         volumeMounts:
         - mountPath: /tmp
           name: tmp-volume

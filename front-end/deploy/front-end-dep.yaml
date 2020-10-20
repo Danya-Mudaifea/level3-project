@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: front-end
-        image: amerahsultan1/front-end
+        image: danya97/front-end
         resources:
           limits:
             cpu: 300m
@@ -24,16 +24,6 @@ spec:
             memory: 300Mi
         ports:
         - containerPort: 8079
-        env:
-        - name: SESSION_REDIS
-          value: "true"
-        securityContext:
-          runAsNonRoot: true
-          runAsUser: 10001
-          capabilities:
-            drop:
-              - all
-          readOnlyRootFilesystem: true
         livenessProbe:
           httpGet:
             path: /
