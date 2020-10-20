@@ -5,10 +5,10 @@ metadata:
   labels:
     name: carts-db
 spec:
-  replicas: 1
   selector:
     matchLabels:
       name: carts-db
+  replicas: 1
   template:
     metadata:
       labels:
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: carts-db
-        image: mongo
+        image: mongo:3.4
         ports:
         - name: mongo
           containerPort: 27017
