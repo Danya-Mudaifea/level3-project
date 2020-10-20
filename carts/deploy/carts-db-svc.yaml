@@ -3,11 +3,13 @@ kind: Service
 metadata:
   name: carts-db
   labels:
-    name: carts-db
+    app: carts-db
+  namespace: test
 spec:
   ports:
     # the port that this service should serve on
   - port: 27017
     targetPort: 27017
   selector:
-    name: carts-db
+    app: carts-db
+
