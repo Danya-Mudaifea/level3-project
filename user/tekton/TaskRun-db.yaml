@@ -1,14 +1,14 @@
 apiVersion: tekton.dev/v1beta1
 kind: TaskRun
 metadata:
-  name: user-runner
+  name: user-db-runner
 spec:
   serviceAccountName: user-docker-hub
   taskRef:
-    name: user
+    name: user-db
   params:
   - name: IMAGE
-    value: "danya97/user"
+    value: "danya97/user-db"
   resources:
     inputs:
     - name: level3-project

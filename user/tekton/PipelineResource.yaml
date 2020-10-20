@@ -8,4 +8,5 @@ spec:
     - name: revision
       value: main
     - name: url
-      value: https://github.com/Danya-Mudaifea/Level3-Project
+      value: https://github.com/danya-mudaifea/level3-project
+
