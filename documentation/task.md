@@ -104,3 +104,11 @@ TARGET_HOST is not set; use '-h hostname:port'"
 ### Trello 
 
 ![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day8.png?raw=true "Title")
+
+## Day 10:
+
+-elf and grafana working , all services working , e2e test is a big failure :)
+
+### Trello 
+
+![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day10.png?raw=true "Title")
