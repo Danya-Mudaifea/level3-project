@@ -14,6 +14,6 @@ spec:
   ports:
   - name: prometheus
     protocol: TCP
-    port: 9090
-    targetPort: 9090
-    nodePort: 31090
+    port: 80
+    targetPort: 80
+   # nodePort: 31090

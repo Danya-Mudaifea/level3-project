@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: prometheus-deployment
@@ -30,7 +30,7 @@ spec:
         - '-alertmanager.url=http://alertmanager:9093'
         ports:
         - name: web
-          containerPort: 9090
+          containerPort: 80
         volumeMounts:
         - name: config-volume
           mountPath: /etc/prometheus
@@ -45,3 +45,4 @@ spec:
           name: prometheus-alertrules
       nodeSelector:
         beta.kubernetes.io/os: linux
+
