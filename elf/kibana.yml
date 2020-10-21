@@ -17,11 +17,11 @@ spec:
         name: kibana
     spec:
       containers:
-       - image: kibana
+       - image: kibana:7.9.2
          name: kibana
          ports:
           - name: kibana
-            containerPort: 5601
+            containerPort: 80
 ---
 apiVersion: v1
 kind: Service
@@ -33,8 +33,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 5601
-    targetPort: 5601
-    nodePort: 31601
+  - port: 80
+    targetPort: 80
+    # nodePort: 31601 
   selector:
     name: kibana
