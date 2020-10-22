@@ -18,7 +18,7 @@
    18  2020-10-18 16:22:05 docker ps -l
    19  2020-10-18 16:22:19 docker rm -f 40bd8fda5dfb
    20  2020-10-18 16:22:30 docker run --network sock-shop -d -p 81:80 -p 8080:8080 --name edge-router edge-router
-   21  2020-10-18 16:22:33 docker ps
+   21  2021-10-18 16:22:33 docker ps
    22  2020-10-18 16:22:43 vim Dockerfile 
    23  2020-10-18 16:22:56 docker rm -f 70bf0791df88 
    24  2020-10-18 16:23:07 cd ..
