@@ -4,7 +4,7 @@
 
   var __utils__ = require("clientutils").create();
 
-  casper.test.begin("User buys some socks", 5, function(test) {
+  casper.test.begin("User buys some socks", 6, function(test) {
     // initial load and login
     casper.start("http://15.185.142.145:30001/", function() {
       this.clickLabel("Login");
@@ -44,7 +44,7 @@
     });
     casper.then(function() {
       test.assertTextExists("cart", "user is taken to the shopping cart overview");
-      test.assertTextExists("cart", "user is presented with the checkout button");
+      test.assertTextExists("checkout", "user is presented with the checkout button");
 
 
       // The checkout button is disabled by default on page load. It will only get enabled
@@ -66,14 +66,14 @@
 
     // actually checkout
     casper.then(function() {
-      this.waitForText("My orders", function() {
+      this.waitForText("orders", function() {
         test.pass("user is taken to the orders page");
       }, function() {
-        console.log("dumping page screenshot as PNG")
+      //  console.log("dumping page screenshot as PNG")
      // var cap = casper.captureBase64("png");
     //  console.log(cap);
-        console.log("DONE");
-     // test.fail("user was not taken to the orders page");
+      //  console.log("DONE");
+     	test.fail("user was not taken to the orders page");
       }, 3000);
     });
 
