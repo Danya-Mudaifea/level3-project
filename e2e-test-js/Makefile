@@ -1,10 +1,12 @@
 default: build
 
+
+
 build:
 	docker build --tag node4 .
 
-test:
-	docker run -it --rm -v "$$(pwd)":/app -w /app node4 mocha test.js
+#test:
+#	docker run -it --rm -v "$$(pwd)":/app -w /app node4 mocha test.js
 
 itest:
 	docker run -it --rm -v "$$(pwd)":/app -w /app node4 casperjs test homepage_test.js catalogue_test.js cart_test.js checkout_test.js

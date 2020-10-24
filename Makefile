@@ -1,4 +1,4 @@
-make up: init logging monitoring deploy-website
+make build: init logging monitoring deploy-website  
 
 init:
 	cd k8s-sandbox && make up && make install-cicd && make install-ingress && cd ..
@@ -6,7 +6,7 @@ logging:
 	cd k8s-sandbox && make install-logging && cd ..
 monitoring:
 	cd k8s-sandbox && make install-monitoring && cd ..
-deploy-website:
+deploy-website-test:
 	kubectl create namespace test
 	kubectl apply -f ./front-end/deploy/front-end-dep.yaml -n test
 	kubectl apply -f ./front-end/deploy/front-end-svc.yaml -n test
