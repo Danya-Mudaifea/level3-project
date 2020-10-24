@@ -113,8 +113,10 @@ delete-ingress:
 	echo "Ingress: delete" | tee -a output.log
 	kubectl delete -n ingress -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-0.32.0/deploy/static/provider/cloud/deploy.yaml | tee -a output.log 2>/dev/null | true
 
-install-monitoring: install-prometheus install-grafana
-delete-monitoring: delete-prometheus delete-grafana
+install-monitoring:
+	install-prometheus install-grafana
+delete-monitoring:
+	delete-prometheus delete-grafana
 
 install-prometheus:
 	echo "Monitoring: install-grafana" | tee -a output.log
@@ -131,9 +133,10 @@ install-grafana:
 delete-grafana:
 	echo "Monitoring: delete-grafana" | tee -a output.log
 	helm delete -n monitoring grafana 2>/dev/null | true
+	echo "Access it with : ip/grafana "
 install-logging:
 	cd elf
-	#kubectl create namespace logging
+#	kubectl create namespace logging
 	kubectl create -f elf/elasticsearch.yaml -n logging
 	kubectl create -f elf/kibana.yaml -n logging
 	kubectl create -f elf/fluentd-sa.yaml -n logging
@@ -141,6 +144,7 @@ install-logging:
 	kubectl create -f elf/fluentd-crb.yaml -n logging
 	kubectl create -f elf/fluentd-daemon.yaml -n logging
 	kubectl get service -n logging
+	echo "To Access it : ip:port of kibana"
 	cd ..
 delete-logging:
 	cd elf	
@@ -150,6 +154,6 @@ delete-logging:
 	kubectl delete -f elf/fluentd-cr.yaml -n logging
 	kubectl delete -f elf/fluentd-crb.yaml -n logging
 	kubectl delete -f elf/fluentd-daemon.yaml -n logging
-	kubectl delete namespace logging
+#	kubectl delete namespace logging
 	cd ..
 

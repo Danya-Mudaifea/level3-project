@@ -1,10 +1,11 @@
+make up: init logging deploy-website
+
 init:
-	cd k8s-sandbox && make up && make install-cicd && make install-ingress
+	cd k8s-sandbox && make up && make install-cicd && make install-ingress && cd ..
 logging:
-	cd k8s-sandbox && make install-logging && make install-monitoring
+	cd k8s-sandbox && make install-logging && make install-monitoring && cd ..
 
-
-deploy-sockshop:
+deploy-website:
 	kubectl apply -f ./front-end/deploy/front-end-dep.yaml -n test
 	kubectl apply -f ./front-end/deploy/front-end-svc.yaml -n test
 	kubectl apply -f ./front-end/deploy/ingress.yaml -n test
