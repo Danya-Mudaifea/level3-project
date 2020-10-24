@@ -127,25 +127,29 @@ delete-prometheus:
 install-grafana:
 	echo "Monitoring: install-grafana" | tee -a output.log
 	helm install grafana grafana/grafana -n monitoring -f platform/monitoring/grafana-values.yaml | tee -a output.log
-
+	kubectl get service -n monitoring
 delete-grafana:
 	echo "Monitoring: delete-grafana" | tee -a output.log
 	helm delete -n monitoring grafana 2>/dev/null | true
-
 install-logging:
-	kubectl create namespace elf
-	echo "Logging: install-elasticsearch" | tee -a output.log
-	helm install elasticsearch elastic/elasticsearch -n elf -f platform/logging/elastic-values.yaml | tee -a output.log
-	echo "Logging: install-fluent-bit" | tee -a output.log
-	helm install fluent-bit fluent/fluent-bit -n elf -f platform/logging/fluent-values.yaml | tee -a output.log
-	echo "Logging: install-kibana" | tee -a output.log
-	helm install kibana elastic/kibana -n elf -f platform/logging/kibana-values.yaml | tee -a output.log
-
+	cd elf
+	#kubectl create namespace logging
+	kubectl create -f elf/elasticsearch.yaml -n logging
+	kubectl create -f elf/kibana.yaml -n logging
+	kubectl create -f elf/fluentd-sa.yaml -n logging
+	kubectl create -f elf/fluentd-cr.yaml -n logging
+	kubectl create -f elf/fluentd-crb.yaml -n logging
+	kubectl create -f elf/fluentd-daemon.yaml -n logging
+	kubectl get service -n logging
+	cd ..
 delete-logging:
-	echo "Logging: delete-elasticsearch" | tee -a output.log
-	helm delete elasticsearch -n elf  | tee -a output.log 2>/dev/null | true
-	echo "Logging: delete-elasticsearch" | tee -a output.log
-	helm delete fluent-bit -n elf | tee -a output.log 2>/dev/null | true
-	echo "Logging: delete-elasticsearch" | tee -a output.log
-	helm delete kibana elastic/kibana -n elf | tee -a output.log 2>/dev/null | true
-	kubectl delete namespace elf
+	cd elf	
+	kubectl delete -f elf/elasticsearch.yaml -n logging
+	kubectl delete -f elf/kibana.yaml -n logging	
+	kubectl delete -f elf/fluentd-sa.yaml -n logging
+	kubectl delete -f elf/fluentd-cr.yaml -n logging
+	kubectl delete -f elf/fluentd-crb.yaml -n logging
+	kubectl delete -f elf/fluentd-daemon.yaml -n logging
+	kubectl delete namespace logging
+	cd ..
+
