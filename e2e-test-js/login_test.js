@@ -11,8 +11,8 @@
       casper.waitUntilVisible("#login-modal", function() {
         test.assertVisible("#login-modal", "user is presented with the login dialogue");
         this.fill("#login-modal form", {
-          "username": "danyahisham",
-          "password": "danya"
+          "username": "Eve_Berger",
+          "password": "eve"
         }, false);
       }, function() {
         test.fail("login dialogue never showed up");
