@@ -113,10 +113,8 @@ delete-ingress:
 	echo "Ingress: delete" | tee -a output.log
 	kubectl delete -n ingress -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-0.32.0/deploy/static/provider/cloud/deploy.yaml | tee -a output.log 2>/dev/null | true
 
-install-monitoring:
-	install-prometheus install-grafana
-delete-monitoring:
-	delete-prometheus delete-grafana
+install-monitoring: install-prometheus install-grafana
+delete-monitoring: delete-prometheus delete-grafana
 
 install-prometheus:
 	echo "Monitoring: install-grafana" | tee -a output.log
@@ -130,10 +128,10 @@ install-grafana:
 	echo "Monitoring: install-grafana" | tee -a output.log
 	helm install grafana grafana/grafana -n monitoring -f platform/monitoring/grafana-values.yaml | tee -a output.log
 	kubectl get service -n monitoring
+	echo "Access it with : ip/grafana "
 delete-grafana:
 	echo "Monitoring: delete-grafana" | tee -a output.log
 	helm delete -n monitoring grafana 2>/dev/null | true
-	echo "Access it with : ip/grafana "
 install-logging:
 	cd elf
 #	kubectl create namespace logging
