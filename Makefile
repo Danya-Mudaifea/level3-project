@@ -1,5 +1,11 @@
 make build: init logging monitoring deploy-website  
 
+secret-docker:
+	docker login 		
+	kubectl create secret generic danya97 \
+ 	--from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
+ 	--type=kubernetes.io/dockerconfigjson -n test
+
 init:
 	cd k8s-sandbox && make up && make install-cicd && make install-ingress && cd ..
 logging:
