@@ -2,7 +2,7 @@ make build: init logging monitoring deploy-website
 
 secret-docker:
 	docker login 		
-	kubectl create secret generic danya97 \
+	kubectl create secret generic danyacreds \
  	--from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
  	--type=kubernetes.io/dockerconfigjson -n test
 
