@@ -1,0 +1,21 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: run-e2e-test-task
+spec:
+  resources:
+    inputs:
+    - name: level3-project
+      type: git
+  params:
+  - name: imageUrl
+    description: Url of image repo
+  - name: imageTag
+    description: Tag of the image
+  steps:
+  - name: run-test
+    image: danya97/e2e-test-js
+    command: ["/bin/sh"]
+    args:
+      - "-c"
+      - "/e2e-test-js/runner.sh"

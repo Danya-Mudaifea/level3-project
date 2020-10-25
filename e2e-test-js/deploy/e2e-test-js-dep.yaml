@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: e2e-test-js
+  labels:
+    name: e2e-test-js
+spec:
+  selector:
+    matchLabels:
+      name: e2e-test-js
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: e2e-test-js
+    spec:
+      containers:
+      - name: e2e-test-js
+        image: __IMAGE__
+        command: ["/bin/sh"]
+        args: ["-c","/e2e-test-js/runner.sh"] 
+      nodeSelector:
+        beta.kubernetes.io/os: linux
