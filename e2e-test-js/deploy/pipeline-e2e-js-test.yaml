@@ -31,11 +31,11 @@ spec:
       name: build-push-task
     params:
       - name: IMAGE
-        value: "danya97/e2e-test-js"
+        value: "$(params.IMAGE)"
       - name: DOCKERFILE
-        value: "/workspace/level3-project/e2e-test-js/Dockerfile"
+        value: "$(params.DOCKERFILE)"
       - name: CONTEXT
-        value:  "/workspace/level3-project/e2e-test-js"
+        value: "$(params.CONTEXT)"
     resources:
       inputs:
         - name: level3-project
@@ -43,6 +43,11 @@ spec:
   - name: test-deploy
     taskRef:
       name: deploy-task
+    runAfter:
+      - build-push-image
+  - name: run-test
+    taskRef:
+      name: run-e2e-test-task
     runAfter:
       - build-push-image
     params:

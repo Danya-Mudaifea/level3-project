@@ -9,9 +9,9 @@ spec:
       type: git
   params:
   - name: imageUrl
-    description: Url of image repo
+    description: Url of image repository
   - name: imageTag
-    description: Tag of the image
+    description: Tag of the images to be used.
   steps:
   - name: run-test
     image: danya97/e2e-test-js
