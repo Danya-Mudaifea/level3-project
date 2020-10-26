@@ -7,6 +7,6 @@ spec:
     name: run-e2e-test-task
   resources:
     inputs:
-      - name: repo
+      - name: level3-project
         resourceRef:
           name: e2e-js-test-resource

@@ -5,10 +5,10 @@ metadata:
 spec:
   resources:
     inputs:
-    - name: level3-project
-      type: git
+      - name: level3-project
+        type: git
   steps:
   - name: run-test
     image: danya97/e2e-test-js
     command: ["/bin/bash"]
-    args: ['-c', ". /e2e-test-js/runner.sh"] 
+    args: ['-c', "/e2e-test-js/runner.sh"] 
