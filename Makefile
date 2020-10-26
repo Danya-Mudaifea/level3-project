@@ -13,7 +13,7 @@ logging:
 monitoring:
 	cd k8s-sandbox && make install-monitoring && cd ..
 deploy-website-test:
-	kubectl create namespace test
+	#kubectl create namespace test
 	kubectl apply -f ./front-end/deploy/front-end-dep.yaml -n test
 	kubectl apply -f ./front-end/deploy/front-end-svc.yaml -n test
 	kubectl apply -f ./front-end/deploy/ingress.yaml -n test

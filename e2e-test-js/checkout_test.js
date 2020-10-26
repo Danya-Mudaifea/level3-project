@@ -4,9 +4,9 @@
 
   var __utils__ = require("clientutils").create();
 
-  casper.test.begin("User buys some socks", 6, function(test) {
+  casper.test.begin("User buys some socks", 5, function(test) {
     // initial load and login
-    casper.start("http://front-end", function() {
+    casper.start("http://front-end/", function() {
       this.clickLabel("Login");
       this.fill("#login-modal form", {
         "username": "Eve_Berger",
@@ -14,7 +14,7 @@
       }, true);
       this.click("#login-modal form button.btn.btn-primary");
       this.waitForText("Logged in", function() {
-        test.pass("user logged in");
+        test.comment("user logged in");
       }, function() {
         test.fail("login failed");
       }, 3000);
@@ -25,7 +25,7 @@
     // access the catalogue
     casper.then(function() {
       this.clickLabel("Catalogue");
-//      test.comment("accessing the catalogue");
+      test.comment("accessing the catalogue");
     });
 
     // add some items to the cart
@@ -35,17 +35,17 @@
 
     // go to the shopping cart
     casper.then(function() {
-      this.waitForText("item(s) in cart", function() {
+      this.waitForText("1 item(s) in cart", function() {
         test.pass("cart is updated with one product");
-        this.clickLabel("2 item(s) in cart");
+        this.clickLabel("1 item(s) in cart");
       }, function() {
         test.fail("cart was not updated");
       }, 3000);
     });
-    casper.then(function() {
-      test.assertTextExists("cart", "user is taken to the shopping cart overview");
-      test.assertTextExists("checkout", "user is presented with the checkout button");
 
+    casper.then(function() {
+      test.assertTextExists("Shopping cart", "user is taken to the shopping cart overview");
+      test.assertTextExists("Proceed to checkout", "user is presented with the checkout button");
 
       // The checkout button is disabled by default on page load. It will only get enabled
       // once the cart has been loaded (asynchronously). Hence the waiting.
@@ -63,17 +63,16 @@
       }, 3000);
     });
 
-
     // actually checkout
     casper.then(function() {
       this.waitForText("orders", function() {
         test.pass("user is taken to the orders page");
       }, function() {
-      //  console.log("dumping page screenshot as PNG")
-     // var cap = casper.captureBase64("png");
-    //  console.log(cap);
-      //  console.log("DONE");
-     	test.fail("user was not taken to the orders page");
+       //console.log("dumping page screenshot as PNG")
+       //var cap = casper.captureBase64("png");
+       //console.log(cap);
+       //console.log("DONE");
+        test.fail("user was not taken to the orders page");
       }, 3000);
     });
 
