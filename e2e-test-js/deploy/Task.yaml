@@ -10,5 +10,5 @@ spec:
   steps:
   - name: run-test
     image: danya97/e2e-test-js
-    command: ["/bin/bash"]
+    command: ["/bin/sh"]
     args: ['-c', "/e2e-test-js/runner.sh"] 
