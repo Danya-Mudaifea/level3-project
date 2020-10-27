@@ -15,7 +15,7 @@ spec:
     - name: DOCKERFILE
       value: "/workspace/level3-project/front-end/Dockerfile"
     - name: pathToYamlFile
-      value: "level3-project/deployment/front-end/front-end-dep.yaml"
+      value: "level3-project/deploy/front-end-dep.yaml"
     - name: imageUrl
       value: "danya97/front-end"
     - name: imageTag
@@ -24,3 +24,4 @@ spec:
       value: "danya97/front-end"
       
   serviceAccountName: danya-docker-hub
+
