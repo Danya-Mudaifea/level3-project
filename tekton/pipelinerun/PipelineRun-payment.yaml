@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: payment-pipelinerun 
+  generateName: payment-pipelinerun 
 spec:
   pipelineRef:
     name: payment-pipeline

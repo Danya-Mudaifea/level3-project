@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: rabbitmq-pipelinerun 
+  generateName: rabbitmq-pipelinerun 
 spec:
   pipelineRef:
     name: rabbitmq-pipeline

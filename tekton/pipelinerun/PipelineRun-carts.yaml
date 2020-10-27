@@ -1,7 +1,7 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: carts-pipelinerun 
+  generateName: carts-pipelinerun 
 spec:
   pipelineRef:
     name: carts-pipeline
