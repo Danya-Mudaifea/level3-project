@@ -44,3 +44,18 @@ spec:
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: user
+  labels:
+    name: user
+spec:
+  type: NodePort
+  ports:
+    # the port that this service should serve on
+  - port: 80
+    targetPort: 80
+  selector:
+    name: user
