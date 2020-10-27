@@ -1,4 +1,7 @@
+all: up run 
+
 make build: init logging monitoring deploy-website  
+
 
 secret-docker:
 	docker login 		
@@ -6,8 +9,9 @@ secret-docker:
  	--from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
  	--type=kubernetes.io/dockerconfigjson -n test
 
-init:
-	cd k8s-sandbox && make up && make install-cicd && make install-ingress && cd .. && make secret-docker
+up:
+	cd k8s-sandbox && make up && make install-cicd && make install-ingress && cd .. && kubectl create namespace test && kubectl create namespace prod && make secret-docker
+
 make down: 
 	cd k8s-sandbox && make down && make delete-cicd && make delete-ingress && cd ..
 logging:
@@ -40,11 +44,11 @@ deploy-website-test:
 	kubectl apply -f ./user/deploy/user-dep.yaml -n test
 	kubectl apply -f ./user/deploy/user-svc.yaml -n test
 
-
+run:
+	make resource && make build_deploy && make pipeline && make pipelinerun && make pods-status && make testing 
 
 
 resource:
-	#kubectl create namespace test
 	kubectl create -f ./tekton/role.yaml -n test
 	kubectl create -f ./tekton/role-binding.yaml -n test
 	kubectl create -f ./tekton/sa-front-end.yaml -n test
@@ -86,6 +90,9 @@ pipelinerun:
 	kubectl create -f ./tekton/pipelinerun/PipelineRun-payment.yaml -n test
 	kubectl create -f ./tekton/pipelinerun/PipelineRun-carts.yaml -n test
 	kubectl create -f ./tekton/pipelinerun/PipelineRun-load-test.yaml -n test
+
+status: 
+	kubectl wait --for=condition=available --timeout=1000s --all deployments -n test
 testing:
 	kubectl create -f ./tekton/tasks/run-e2e.yaml -n test
 	kubectl create -f ./tekton/pipeline/pipeline-e2e-js-test.yaml -n  test
@@ -114,3 +121,19 @@ pipeline-delete:
 	kubectl delete -f ./tekton/pipeline/pipeline-payment.yaml -n test
 	kubectl delete -f ./tekton/pipeline/pipeline-carts.yaml -n test
 	kubectl delete -f ./tekton/pipeline/pipeline-load-test.yaml -n test
+
+delete-resource:
+	#kubectl delete namespace test
+	kubectl delete -f ./tekton/role.yaml -n test
+	kubectl delete -f ./tekton/role-binding.yaml -n test
+	kubectl delete -f ./tekton/sa-front-end.yaml -n test
+	kubectl delete -f ./tekton/PipelineResource/PipelineResource-front-end.yaml -n test	
+	kubectl delete -f ./tekton/PipelineResource/PipelineResource-catalogue.yaml -n test	
+	kubectl delete -f ./tekton/PipelineResource/PipelineResource-queue-master.yaml -n test
+	kubectl delete -f ./tekton/PipelineResource/PipelineResource-orders.yaml -n test
+	kubectl delete -f ./tekton/PipelineResource/PipelineResource-shipping.yaml -n test
+	kubectl delete -f ./tekton/PipelineResource/PipelineResource-user.yaml -n test
+	kubectl delete -f ./tekton/PipelineResource/PipelineResource-payment.yaml -n test
+	kubectl delete -f ./tekton/PipelineResource/PipelineResource-carts.yaml -n test	
+	kubectl delete -f ./tekton/PipelineResource/PipelineResource-load-test.yaml -n test
+	kubectl delete -f ./tekton/PipelineResource/PipelineResource-e2e-js-test.yaml -n  test
