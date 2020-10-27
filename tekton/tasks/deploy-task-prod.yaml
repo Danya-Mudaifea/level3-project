@@ -1,8 +1,8 @@
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
-  name: deploy-task
-  namespace: test
+  name: deploy-task-prod
+  namespace: prod
 spec:
   resources:
     inputs:
@@ -31,3 +31,5 @@ spec:
       - "apply"
       - "-f"
       - "/workspace/$(inputs.params.pathToYamlFile)"
+      - "-n"
+      - "prod"
