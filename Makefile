@@ -87,8 +87,8 @@ pipelinerun:
 	kubectl create -f ./tekton/pipelinerun/PipelineRun-carts.yaml -n test
 	kubectl create -f ./tekton/pipelinerun/PipelineRun-load-test.yaml -n test
 testing:
-	#kubectl create -f ./tekton/tasks/run-e2e.yaml -n test
-#	kubectl create -f ./tekton/pipeline/pipeline-e2e-js-test.yaml -n  test
+	kubectl create -f ./tekton/tasks/run-e2e.yaml -n test
+	kubectl create -f ./tekton/pipeline/pipeline-e2e-js-test.yaml -n  test
 	kubectl create -f ./tekton/pipelinerun/PipelineRun-e2e-js-test.yaml -n  test
 
 
