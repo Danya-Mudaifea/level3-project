@@ -9,6 +9,12 @@ secret-docker:
  	--from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
  	--type=kubernetes.io/dockerconfigjson -n test
 
+secret-docker-prod:
+	docker login            
+	kubectl create secret generic danyacreds \
+        --from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
+        --type=kubernetes.io/dockerconfigjson -n prod
+
 up:
 	cd k8s-sandbox && make up && make install-cicd && make install-ingress && cd .. && kubectl create namespace test && kubectl create namespace prod && make secret-docker
 
@@ -66,6 +72,7 @@ resource:
 build_deploy:
 	kubectl create -f ./tekton/tasks/build-push-task.yaml -n test
 	kubectl create -f ./tekton/tasks/deploy-task.yaml -n test
+	kubectl create -f ./tekton/tasks/deploy-task-prod.yaml -n test
 
 pipeline:
 	kubectl create -f ./tekton/pipeline/pipeline-front-end.yaml -n test
