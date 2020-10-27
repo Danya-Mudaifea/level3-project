@@ -1,0 +1,30 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: user-pipelinerun 
+spec:
+  pipelineRef:
+    name: user-pipeline
+  resources:
+    - name: level3-project
+      resourceRef:
+        name: user-resource
+  params:
+    - name: IMAGE-db
+      value: "danya97/user-db"
+    - name: IMAGE
+      value: "danya97/user"
+    - name: pathToYamlFile
+      value: "level3-project/deploy/user-dep.yaml"
+    - name: imageUrl
+      value: "danya97/user"
+    - name: imageTag
+      value: "latest"
+    - name: pathToYamlFile-db
+      value: "level3-project/deploy/user-db-dep.yaml"
+    - name: imageUrl-db
+      value: "danya97/user-db"
+    - name: imageTag-db
+      value: "latest"
+      
+  serviceAccountName: danya-docker-hub

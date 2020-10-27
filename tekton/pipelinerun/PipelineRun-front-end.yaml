@@ -1,0 +1,26 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: front-end-pipelinerun 
+spec:
+  pipelineRef:
+    name: front-end-pipeline
+  resources:
+    - name: level3-project
+      resourceRef:
+        name: front-end-resource
+  params:
+    - name: CONTEXT
+      value: "/workspace/level3-project/front-end"
+    - name: DOCKERFILE
+      value: "/workspace/level3-project/front-end/Dockerfile"
+    - name: pathToYamlFile
+      value: "level3-project/deployment/front-end/front-end-dep.yaml"
+    - name: imageUrl
+      value: "danya97/front-end"
+    - name: imageTag
+      value: "latest"
+    - name: IMAGE
+      value: "danya97/front-end"
+      
+  serviceAccountName: danya-docker-hub
