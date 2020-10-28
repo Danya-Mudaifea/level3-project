@@ -60,7 +60,6 @@ spec:
       inputs:
         - name: level3-project
           resource: level3-project
-  - name: deploy-socks-shop-prod
     when:
       - input: "$(pods-results)"
         operator: in
@@ -80,4 +79,16 @@ spec:
       inputs:
         - name: level3-project
           resource: level3-project
-
+  - name: deploy-prod
+    taskRef:
+      name: deploy-task-prod
+    runAfter:
+      - build-push-image
+      - run-test
+    params:
+      - name: pathToYamlFile
+        value: "$(params.pathToYamlFile)"
+    resources:
+      inputs:
+        - name: level3-project
+          resource: level3-project

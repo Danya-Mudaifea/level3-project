@@ -16,5 +16,6 @@ spec:
       value: "latest"
     - name: IMAGE
       value: "danya97/e2e-test-js"
-      
+    - name: pathToYamlFile
+      value: "level3-project/deploy/deploy-prod.yaml"    
   serviceAccountName: danya-docker-hub
