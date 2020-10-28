@@ -18,7 +18,7 @@ secret-docker-prod:
         --type=kubernetes.io/dockerconfigjson -n prod
 
 
-make down: 
+down: 
 	cd k8s-sandbox && make down && make delete-cicd && make delete-ingress && cd ..
 logging:
 	cd k8s-sandbox && make install-logging && cd ..
@@ -101,8 +101,8 @@ status:
 	cd tekton && ./status.sh
 
 testing:
-    kubectl create -f ./tekton/tasks/run-e2e.yaml -n test
-    kubectl create -f ./tekton/tasks/deploy-task-prod.yaml -n  test
+	kubectl create -f ./tekton/tasks/run-e2e.yaml -n test
+	kubectl create -f ./tekton/tasks/deploy-task-prod.yaml -n  test
 	kubectl create -f ./tekton/pipeline/pipeline-e2e-js-test.yaml -n  test
 	kubectl create -f ./tekton/pipelinerun/PipelineRun-e2e-js-test.yaml -n  test
 	
