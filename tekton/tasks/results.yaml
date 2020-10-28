@@ -4,9 +4,8 @@ metadata:
   name: results
   namespace: test
 spec:
-  resources:
-    inputs:
-    - name: level3-project
+  results:
+    - name: pods-results
       type: git
   steps:
   - name: run-kubectl
@@ -15,8 +14,12 @@ spec:
     args:
       - "describe"
       - "pods"
-      - "-l"
-      - "name=rabbitmq"
-      - 
-      - "grep Conditions -A 5"
+      - "-n"
+      - "test"
+      - "|"
+      - "grep"
+      - "Conditions"
+      - "-A"
+      - "5"
+      - "| tee $(results.pods-results.path)
 

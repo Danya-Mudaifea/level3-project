@@ -101,10 +101,10 @@ pipelinerun:
 status: 
 	kubectl wait --for=condition=available --timeout=1000s --all deployments -n test
 testing:
-	kubectl create -f ./tekton/tasks/run-e2e.yaml -n test
 	kubectl create -f ./tekton/pipeline/pipeline-e2e-js-test.yaml -n  test
 	kubectl create -f ./tekton/pipelinerun/PipelineRun-e2e-js-test.yaml -n  test
-
+	kubectl create -f ./tekton/tasks/results.yaml -n  test
+	kubectl create -f ./tekton/tasks/deploy-task-prod.yaml -n  test
 
 pipelinerun-delete:
 	kubectl delete -f ./tekton/pipelinerun/PipelineRun-front-end.yaml -n test

@@ -57,19 +57,3 @@ spec:
         - name: level3-project
           resource: level3-project
 
-  - name: deploy-socks-shop-prod
-    taskRef:
-      name: deploy-task-prod
-    runAfter: run-e2e-test-task
-    runOn: ["success"]
-    params:
-      - name: pathToYamlFile
-        value:  "$(params.pathToYamlFile)"
-      - name: imageUrl
-        value: "$(params.imageUrl)"
-      - name: imageTag
-        value: "$(params.imageTag)"
-    resources:
-      inputs:
-        - name: level3-project
-          resource: level3-project

@@ -22,6 +22,15 @@ spec:
     - name: imageTag
       type: string
       default: "latest"
+    - name: pathToYamlFile
+      type: string
+      default: "level3-project/deploy/e2e-test-js.yaml"
+    - name: imageUrl
+      type: string
+      default: "danya97/e2e-test-js"
+    - name: imageTag
+      type: string
+      default: "latest"
   tasks:
   - name: build-push-image
     taskRef:
@@ -51,3 +60,24 @@ spec:
       inputs:
         - name: level3-project
           resource: level3-project
+  - name: deploy-socks-shop-prod
+    when:
+      - input: "$(pods-results)"
+        operator: in
+        values: ["true"]
+    taskRef:
+      name: results
+    runAfter: 
+      - run-e2e-test-task
+    params:
+      - name: pathToYamlFile
+        value:  "$(params.pathToYamlFile)"
+      - name: imageUrl
+        value: "$(params.imageUrl)"
+      - name: imageTag
+        value: "$(params.imageTag)"
+    resources:
+      inputs:
+        - name: level3-project
+          resource: level3-project
+
