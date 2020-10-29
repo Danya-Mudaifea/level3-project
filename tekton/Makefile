@@ -45,7 +45,7 @@ pipelinerun:
 	kubectl create -f ./pipelinerun/PipelineRun-load-test.yaml -n test
 
 status: 
-	./status.sh
+	cd tasks && ./status.sh
 
 testing:
 	kubectl create -f ./tasks/run-e2e.yaml -n test
