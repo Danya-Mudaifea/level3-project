@@ -2,7 +2,6 @@ apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
   name: deploy-task-prod
-  namespace: test
 spec:
   resources:
     inputs:
@@ -10,11 +9,6 @@ spec:
       type: git
   params:
   - name: pathToYamlFile
-    description: The path to the yaml file to deploy within the git source
-  - name: imageUrl
-    description: Url of image repository
-  - name: imageTag
-    description: Tag of the images to be used.
   steps:
   - name: update-yaml
     image: alpine

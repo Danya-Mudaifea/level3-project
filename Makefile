@@ -1,24 +1,22 @@
-all: up run 
+up: build run
 
-make build: init logging monitoring deploy-website  
+elf-graf : logging monitoring  
 
+build:
+	cd k8s-sandbox && make up && make install-cicd && make install-ingress && cd .. && kubectl create namespace test && kubectl create namespace prod && make secret-docker
 
 secret-docker:
 	docker login 		
 	kubectl create secret generic danyacreds \
  	--from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
  	--type=kubernetes.io/dockerconfigjson -n test
-
 secret-docker-prod:
 	docker login            
 	kubectl create secret generic danyacreds \
         --from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
         --type=kubernetes.io/dockerconfigjson -n prod
 
-up:
-	cd k8s-sandbox && make up && make install-cicd && make install-ingress && cd .. && kubectl create namespace test && kubectl create namespace prod && make secret-docker
-
-make down: 
+down: 
 	cd k8s-sandbox && make down && make delete-cicd && make delete-ingress && cd ..
 logging:
 	cd k8s-sandbox && make install-logging && cd ..
@@ -51,7 +49,7 @@ deploy-website-test:
 	kubectl apply -f ./user/deploy/user-svc.yaml -n test
 
 run:
-	make resource && make build_deploy && make pipeline && make pipelinerun && make pods-status && make testing 
+	make resource && make build_deploy && make pipeline && make pipelinerun && make status && make testing && make logging && make monitoring
 
 
 resource:
@@ -72,7 +70,6 @@ resource:
 build_deploy:
 	kubectl create -f ./tekton/tasks/build-push-task.yaml -n test
 	kubectl create -f ./tekton/tasks/deploy-task.yaml -n test
-	kubectl create -f ./tekton/tasks/deploy-task-prod.yaml -n test
 
 pipeline:
 	kubectl create -f ./tekton/pipeline/pipeline-front-end.yaml -n test
@@ -99,12 +96,14 @@ pipelinerun:
 	kubectl create -f ./tekton/pipelinerun/PipelineRun-load-test.yaml -n test
 
 status: 
-	kubectl wait --for=condition=available --timeout=1000s --all deployments -n test
+	cd tekton && ./status.sh
+
 testing:
+	kubectl create -f ./tekton/tasks/run-e2e.yaml -n test
+	kubectl create -f ./tekton/tasks/deploy-task-prod.yaml -n  test
 	kubectl create -f ./tekton/pipeline/pipeline-e2e-js-test.yaml -n  test
 	kubectl create -f ./tekton/pipelinerun/PipelineRun-e2e-js-test.yaml -n  test
-	kubectl create -f ./tekton/tasks/results.yaml -n  test
-	kubectl create -f ./tekton/tasks/deploy-task-prod.yaml -n  test
+
 
 pipelinerun-delete:
 	kubectl delete -f ./tekton/pipelinerun/PipelineRun-front-end.yaml -n test

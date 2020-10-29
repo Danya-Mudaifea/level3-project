@@ -112,3 +112,39 @@ TARGET_HOST is not set; use '-h hostname:port'"
 ### Trello 
 
 ![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day10.png?raw=true "Title")
+
+## Day 12:
+- working on e2e test and reading it to understand it 
+
+### Issues
+- still most of it errors 
+
+## Day 13:
+- same as yesterday  
+
+## Day 14:
+- working on the makefile
+
+## Day 15:
+- working on the makefile
+
+## Day 16:
+- added pipelines,Pieplines ,PipelineResource, task , taskrun for e2e-test and editing the image 
+
+### Issues
+- not passing yet
+
+## Day 17:
+- Test FINALLY pass
+
+## Day 18:
+- merged deploy files to one to be able to use it to deploy it to prod
+- added generateName
+- tried to deploy to prod 
+- edited makefile
+
+## Day 19:
+- WORKED !!! deploying to prod
+
+## Day 20:
+- working on elf & grafana 
