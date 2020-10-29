@@ -19,8 +19,8 @@ spec:
         version: v1
         kubernetes.io/cluster-service: "true"
     spec:
-      serviceAccount: fluentd
-      serviceAccountName: fluentd
+      serviceAccount: danya-docker-hub
+      serviceAccountName: danya-docker-hub
       tolerations:
       - key: node-role.kubernetes.io/master
         effect: NoSchedule

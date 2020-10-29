@@ -8,5 +8,5 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 subjects:
 - kind: ServiceAccount
-  name: fluentd
+  name: danya-docker-hub
   namespace: logging
