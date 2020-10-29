@@ -113,45 +113,17 @@ delete-ingress:
 	echo "Ingress: delete" | tee -a output.log
 	kubectl delete -n ingress -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-0.32.0/deploy/static/provider/cloud/deploy.yaml | tee -a output.log 2>/dev/null | true
 
-install-monitoring: install-prometheus install-grafana
-delete-monitoring: delete-prometheus delete-grafana
-
-install-prometheus:
-	echo "Monitoring: install-grafana" | tee -a output.log
-	helm install -n monitoring -f platform/monitoring/prometheus-values.yaml prometheus prometheus-community/prometheus| tee -a output.log
-
-delete-prometheus:
-	echo "Monitoring: delete-prometheus" | tee -a output.log
-	helm delete -n monitoring prometheus 2>/dev/null | true
-
-install-grafana:
-	echo "Monitoring: install-grafana" | tee -a output.log
-	helm install grafana grafana/grafana -n monitoring -f platform/monitoring/grafana-values.yaml | tee -a output.log
+install-monitoring:  
+	cd grafana
+	source grafana.sh
 	kubectl get service -n monitoring
-	echo "Access it with : ip/grafana "
-delete-grafana:
-	echo "Monitoring: delete-grafana" | tee -a output.log
-	helm delete -n monitoring grafana 2>/dev/null | true
+	echo "Access it with : ip/port"
+	cd ..
+
 install-logging:
 	cd elf
-#	kubectl create namespace logging
-	kubectl create -f elf/elasticsearch.yaml -n logging
-	kubectl create -f elf/kibana.yaml -n logging
-	kubectl create -f elf/fluentd-sa.yaml -n logging
-	kubectl create -f elf/fluentd-cr.yaml -n logging
-	kubectl create -f elf/fluentd-crb.yaml -n logging
-	kubectl create -f elf/fluentd-daemon.yaml -n logging
+	source elf.sh
 	kubectl get service -n logging
 	echo "To Access it : ip:port of kibana"
-	cd ..
-delete-logging:
-	cd elf	
-	kubectl delete -f elf/elasticsearch.yaml -n logging
-	kubectl delete -f elf/kibana.yaml -n logging	
-	kubectl delete -f elf/fluentd-sa.yaml -n logging
-	kubectl delete -f elf/fluentd-cr.yaml -n logging
-	kubectl delete -f elf/fluentd-crb.yaml -n logging
-	kubectl delete -f elf/fluentd-daemon.yaml -n logging
-#	kubectl delete namespace logging
 	cd ..
 
