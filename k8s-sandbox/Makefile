@@ -114,15 +114,13 @@ delete-ingress:
 	kubectl delete -n ingress -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-0.32.0/deploy/static/provider/cloud/deploy.yaml | tee -a output.log 2>/dev/null | true
 
 install-monitoring:  
-	cd grafana
-	source grafana.sh
+	cd grafana && ./grafana.sh
 	kubectl get service -n monitoring
 	echo "Access it with : ip/port"
 	cd ..
 
 install-logging:
-	cd elf
-	source elf.sh
+	cd elf && ./elf.sh
 	kubectl get service -n logging
 	echo "To Access it : ip:port of kibana"
 	cd ..

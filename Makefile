@@ -49,7 +49,7 @@ deploy-website-test:
 	kubectl apply -f ./user/deploy/user-svc.yaml -n test
 
 run:
-	make resource && make build_deploy && make pipeline && make pipelinerun && make status && make testing && make elf_graf 
+	make resource && make build_deploy && make pipeline && make pipelinerun && make status && make testing && make logging && make monitoring
 
 
 resource:
