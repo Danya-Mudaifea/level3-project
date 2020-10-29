@@ -3,7 +3,7 @@ up: build run
 elf-graf : logging monitoring  
 
 build:
-	cd k8s-sandbox && make up && make install-cicd && make install-ingress && cd .. && kubectl create namespace test && kubectl create namespace prod && kubectl create namespace logging && kubectl create namespace monitoring && make secret-docker
+	cd k8s-sandbox && make up && make install-cicd && make install-ingress && cd .. && kubectl create namespace test && kubectl create namespace prod &&  make secret-docker
 
 secret-docker:
 	docker login 		
