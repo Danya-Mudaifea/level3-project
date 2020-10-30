@@ -5,3 +5,4 @@
 - There is test , prod , logging and monitoring namespaces
 - To access the website with test use port : 30001 , and for prod use 30002
 - It needs dockerhub access to work 
+- Grafan uses default username and password:admin ,prom-operator 
