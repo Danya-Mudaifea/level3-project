@@ -69,7 +69,7 @@ pipelinerun:
 
 
 down: 
-	cd k8s-sandbox && make down && make delete-cicd && make delete-ingress && cd ..
+	cd k8s-sandbox && make down && cd ..
 delete-all:
 	kubectl delete -f ./tekton/role.yaml -n test -f ./tekton/role-binding.yaml -n test -f ./tekton/sa-front-end.yaml -n test
 	cd tekton
