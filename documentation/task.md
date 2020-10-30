@@ -1,150 +1,47 @@
 # Dairy of the project:
 
 ## Day 1:
-
-- Creating kanban board
-- Clone the repo
-- Creating task.md
-- test
-
-### Trello 
-
-
-![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day1.png?raw=true "Title")
-
+![day1](https://user-images.githubusercontent.com/66493820/97705793-b3a8dd80-1ac5-11eb-9327-3c10713eaa5d.png)
 
 ## Day 2:
-
-- Revising previous labs
-- Pushing an image to docker hub
-
-### Issues
-Problems pushing an image. Solution : changing the order of deployment commands
-
-### Trello 
-
-![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day2.png?raw=true "Title")
-
-#### end of the day 
-
-![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day2.1.png?raw=true "Title")
+![day2](https://user-images.githubusercontent.com/66493820/97705801-b572a100-1ac5-11eb-904e-a83bd68e5c93.png)
 
 ## Day 3:
-- Sucssfully tested front-end , orders , payment , shipping 
+![day3](https://user-images.githubusercontent.com/66493820/97705810-b73c6480-1ac5-11eb-9373-cdd3b6c589c0.png)
 
-### Issues
-- payment didn't work untill adding /main 
-- getting badgetay with edge-router
-- not working db in catalogue & orders 
-- lack of sleep
-
-### Trello 
-
-![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day3.png?raw=true "Title")
-
-#### end of the day 
-
-![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day3.1.png?raw=true "Title")
+![day3 1](https://user-images.githubusercontent.com/66493820/97705807-b60b3780-1ac5-11eb-94f1-6515a912b982.png)
 
 ## Day 4:
--user worked with makefile ( dockerdev , dockertestdb ,dockerruntest ) locally
-- stuck with an error forever ( submodule test ) > fix delete test dir
-
-### Issues 
--queue master didn't work until I changed jdk image, got queue-master-rabbitmq err
--load test didn't work because it needed python 3.6 or higher and updating pip and change locustio to locust , got error : "
-TARGET_HOST is not set; use '-h hostname:port'"
-
-### Trello 
-
-![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day4.png?raw=true "Title")
+![day4](https://user-images.githubusercontent.com/66493820/97705813-b7d4fb00-1ac5-11eb-9801-fe54b58bb3b0.png)
 
 ## Day 5:
-- fixing yestarday error :D 
-- sucessfully pushing images using tekton 
-
-
-### Issues 
-- errors in catalogue , orders , q-master , shipping ) images, will try to work on it tmw and add the trello screenshots :) , good night , or good morning ( 4:00 am )
-
-### Trello 
-
-![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day5.png?raw=true "Title")
+![day5](https://user-images.githubusercontent.com/66493820/97705816-b9062800-1ac5-11eb-98ef-d39b31607d6a.png)
 
 ## Day 6:
--pushed all images by fixing the errors
-
-### Issues 
-- The weekend is a weekend
-### Trello 
-
-![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day6.png?raw=true "Title")
+![day6](https://user-images.githubusercontent.com/66493820/97705818-b99ebe80-1ac5-11eb-993f-be6d3b42f188.png)
 
 ## Day 7:
-- Run a sandbox
-- Done with tekton 
+![day7](https://user-images.githubusercontent.com/66493820/97705821-ba375500-1ac5-11eb-9e20-5199be44e759.png)
 
-### Trello 
-
-![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day7.png?raw=true "Title")
-
-## Day 8 & 9 (who's counting anyway):
-
-- Pushed user-db & catalouge-db images 
-- Deployed all the services 
-
-### Issues
-- Forgot to install ingress
-- Front-end security needed to be deleted
-- Catalouge wasn't working because of ingress
-- User didn't work without cluser but worked in it ( porting issue I belive)
-- Some services is hard to know if they are working such as queue master 
-- There was so many errors more than I can remember :D 
-
-### Trello 
-
-![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day8.png?raw=true "Title")
+## Day 8:
+![day8](https://user-images.githubusercontent.com/66493820/97706030-10a49380-1ac6-11eb-8683-9f9d8601f4da.png)
 
 ## Day 10:
+![day10](https://user-images.githubusercontent.com/66493820/97706036-126e5700-1ac6-11eb-8faa-5b66bb08fa87.png)
 
--elf and grafana working , all services working , e2e test is a big failure :)
+![day10-1](https://user-images.githubusercontent.com/66493820/97706043-139f8400-1ac6-11eb-9257-08769c411269.png)
 
-### Trello 
-
-![Alt text](https://github.com/Danya-Mudaifea/level3-project/blob/main/documentation/day10.png?raw=true "Title")
-
-## Day 12:
-- working on e2e test and reading it to understand it 
-
-### Issues
-- still most of it errors 
-
-## Day 13:
-- same as yesterday  
-
-## Day 14:
-- working on the makefile
-
-## Day 15:
-- working on the makefile
+## Day 11:
+![day11](https://user-images.githubusercontent.com/66493820/97706045-14d0b100-1ac6-11eb-90f7-cfd71cbf27bd.png)
 
 ## Day 16:
-- added pipelines,Pieplines ,PipelineResource, task , taskrun for e2e-test and editing the image 
-
-### Issues
-- not passing yet
+![day16](https://user-images.githubusercontent.com/66493820/97706047-1601de00-1ac6-11eb-850c-e0364e925108.png)
 
 ## Day 17:
-- Test FINALLY pass
+![day17](https://user-images.githubusercontent.com/66493820/97706048-17330b00-1ac6-11eb-902b-61200cea3f29.png)
 
 ## Day 18:
-- merged deploy files to one to be able to use it to deploy it to prod
-- added generateName
-- tried to deploy to prod 
-- edited makefile
-
-## Day 19:
-- WORKED !!! deploying to prod
+![day18](https://user-images.githubusercontent.com/66493820/97706054-18643800-1ac6-11eb-8d4d-a391a6058e9f.png)
 
 ## Day 20:
-- working on elf & grafana 
+![day20](https://user-images.githubusercontent.com/66493820/97706060-19956500-1ac6-11eb-9ee5-03ec6fe4bd97.png)
