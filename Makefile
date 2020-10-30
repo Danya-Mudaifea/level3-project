@@ -38,7 +38,9 @@ resource:
 build_deploy:
 	kubectl create -f ./tekton/tasks/build-push-task.yaml -n test
 	kubectl create -f ./tekton/tasks/deploy-task.yaml -n test
-
+	kubectl create -f ./tekton/tasks/wait-pods.yaml -n test
+	kubectl create -f ./tekton/tasks/run-e2e.yaml -n test
+	kubectl apply -f ./tekton/tasks/deploy-task-prod.yaml -n test
 pipeline:
 	kubectl create -f ./tekton/pipeline/pipeline-front-end.yaml -n test
 	kubectl create -f ./tekton/pipeline/pipeline-catalogue.yaml -n test

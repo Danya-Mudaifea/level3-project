@@ -31,6 +31,9 @@ spec:
     - name: imageUrl-db
       type: string
       default: "mongo"
+    - name: imageTag
+      type: string
+      default: "latest"
     - name: imageTag-db
       type: string
       default: "latest"
