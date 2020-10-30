@@ -7,3 +7,10 @@
 - To access the website with test use port : 30001 , and for prod use 30002
 - It needs dockerhub access to work 
 - Grafan uses default username and password:admin ,prom-operator 
+
+Task :
+
+[task.md](https://github.com/danya-mudaifea/level3-project/blob/main/documentation/tasks.md)
+
+Dairy
+[dairy.md](https://github.com/danya-mudaifea/level3-project/blob/main/documentation/dairy.md)
