@@ -25,7 +25,7 @@ spec:
     - name: imageTag
       type: string
       default: "latest"
-      - name: namespace
+    - name: namespace
       type: string
       default: "test"
     - name: service-name
