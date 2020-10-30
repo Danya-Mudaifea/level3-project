@@ -43,6 +43,15 @@ spec:
     - name: imageTag-db
       type: string
       default: "latest"
+    - name: namespace
+      type: string
+      default: "test"
+    - name: service-name
+      type: string
+      default: "catalogue"
+    - name: service-name-db
+      type: string
+      default: "catalogue-db"
   tasks:
   - name: build-push-image-db
     taskRef:
@@ -105,6 +114,53 @@ spec:
         value: "$(params.imageUrl)"
       - name: imageTag
         value: "$(params.imageTag)"
+    resources:
+      inputs:
+        - name: level3-project
+          resource: level3-project
+  - name: wait-pods-status
+    taskRef:
+      name: wait-pods-status
+    runAfter:
+      - microservice-deploy
+    params:
+      - name: namespace
+        value: "$(params.namespace)"
+      - name: serivce-name
+        value: "$(params.service-name)"
+    resources:
+      inputs:
+        - name: level3-project
+          resource: level3-project
+  - name: wait-pods-status-db
+    taskRef:
+      name: wait-pods-status
+    runAfter:
+      - microservice-deploy
+    params:
+      - name: namespace
+        value: "$(params.namespace)"
+      - name: serivce-name
+        value: "$(params.service-name-db)"
+    resources:
+      inputs:
+        - name: level3-project
+          resource: level3-project
+  - name: run-test
+    taskRef:
+      name: run-e2e-test-task
+    runAfter:
+      - wait-pods-status
+      - wait-pods-status-db
+    resources:
+      inputs:
+        - name: level3-project
+          resource: level3-project
+  - name: deploy-prod
+    taskRef:
+      name: deploy-task-prod
+    runAfter:
+      - run-test
     resources:
       inputs:
         - name: level3-project

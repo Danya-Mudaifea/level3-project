@@ -9,6 +9,8 @@ spec:
       type: git
   params:
   - name: pathToYamlFile
+    type: string
+    default: "level3-project/deploy/deploy-prod.yaml"
   steps:
   - name: update-yaml
     image: alpine

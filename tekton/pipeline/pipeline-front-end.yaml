@@ -25,6 +25,13 @@ spec:
     - name: imageTag
       type: string
       default: "latest"
+    - name: namespace
+      type: string
+      default: "test"
+    - name: service-name
+      type: string
+      default: "front-end"
+
   tasks:
   - name: build-push-image
     taskRef:
@@ -57,3 +64,35 @@ spec:
         - name: level3-project
           resource: level3-project
 
+  - name: wait-pods-status
+    taskRef:
+      name: wait-pods-status
+    runAfter:
+      - deploy-socks-shop
+    params:
+      - name: namespace
+        value: "$(params.namespace)"
+      - name: serivce-name
+        value: "$(params.service-name)"
+    resources:
+      inputs:
+        - name: level3-project
+          resource: level3-project
+  - name: run-test
+    taskRef:
+      name: run-e2e-test-task
+    runAfter:
+      - wait-pods-status
+    resources:
+      inputs:
+        - name: level3-project
+          resource: level3-project
+  - name: deploy-prod
+    taskRef:
+      name: deploy-task-prod
+    runAfter:
+      - run-test
+    resources:
+      inputs:
+        - name: level3-project
+          resource: level3-project

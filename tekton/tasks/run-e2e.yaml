@@ -10,8 +10,12 @@ spec:
   params:
   - name: imageUrl
     description: Url of image repository
+    type: string
+    default: "danya97/e2e-test-js"
   - name: imageTag
     description: Tag of the images to be used.
+    type: string
+    default: "latest"
   steps:
   - name: run-test
     image: "$(inputs.params.imageUrl):$(inputs.params.imageTag)"

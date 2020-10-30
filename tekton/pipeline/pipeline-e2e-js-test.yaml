@@ -16,15 +16,6 @@ spec:
     - name: CONTEXT
       type: string
       default: "/workspace/level3-project/e2e-test-js"
-    - name: imageUrl
-      type: string
-      default: "danya97/e2e-test-js"
-    - name: imageTag
-      type: string
-      default: "latest"
-    - name: pathToYamlFile
-      type: string
-      default: "level3-project/deploy/deploy-prod.yaml"
   tasks:
   - name: build-push-image
     taskRef:
@@ -36,33 +27,6 @@ spec:
         value: "$(params.DOCKERFILE)"
       - name: CONTEXT
         value: "$(params.CONTEXT)"
-    resources:
-      inputs:
-        - name: level3-project
-          resource: level3-project
-  - name: run-test
-    taskRef:
-      name: run-e2e-test-task
-    runAfter:
-      - build-push-image
-    params:
-      - name: imageUrl
-        value: "$(params.imageUrl)"
-      - name: imageTag
-        value: "$(params.imageTag)"
-    resources:
-      inputs:
-        - name: level3-project
-          resource: level3-project
-  - name: deploy-prod
-    taskRef:
-      name: deploy-task-prod
-    runAfter:
-      - build-push-image
-      - run-test
-    params:
-      - name: pathToYamlFile
-        value: "$(params.pathToYamlFile)"
     resources:
       inputs:
         - name: level3-project
