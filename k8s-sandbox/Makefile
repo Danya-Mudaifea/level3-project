@@ -2,7 +2,7 @@
 
 up: cluster-up init
 
-down: cluster-down
+down: cluster-down 
 
 cluster-down:
 	k3d cluster delete labs
